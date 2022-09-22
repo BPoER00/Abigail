@@ -36,12 +36,12 @@ namespace ProyectoAbigail.Models
             this.Estatus = ESTADO_ACTIVO;
             this.Fecha_commit = DateTime.Now;
             this.Hora_commit = DateTime.Now;
-            this.Cabeza = new Cabeza_Famila();
+            this.Persona = new Persona();
         }
 #endregion
 
 #region FK
-    public virtual Cabeza_Famila Cabeza { get; set; }
+    public virtual Persona Persona { get; set; }
 #endregion
     }
 }
