@@ -16,17 +16,21 @@ namespace ProyectoAbigail.Models
         #region Propiedades
         [Key]
         public int Id { get; set; }
-
         [Required(ErrorMessage = Mensajes.Obligatorio)]
         public string User { get; set; }
-
+        [Required(ErrorMessage = Mensajes.Password)]
+        public string Password { get; set; }
+        
+        [Compare("Password", ErrorMessage = Mensajes.ConfirmPassword)]
+        [NotMapped]
+        public string ConfirmarPass { get; set; }
         [Required(ErrorMessage = Mensajes.Obligatorio)]
         [EmailAddress(ErrorMessage = Mensajes.Correo)]
         public string Correo { get; set; }
 
         [Required(ErrorMessage = Mensajes.Obligatorio)]
         public int Rol_Id { get; set; }
-
+        public string Sal { get; set; }
         public int Estatus { get; set; }
         public DateTime Fecha_commit { get; set; }
         public DateTime Hora_commit { get; set; }

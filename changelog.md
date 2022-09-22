@@ -1,3 +1,13 @@
+*22-09-2022*
+- (Bryan Paz) Se inician operaciones en una nueva rama llamada RamaMigraciones.
+- (Bryan Paz) Se inician el modelo dbcontext para iniciar la conexion con la base de datos.
+- (Bryan Paz) Para la conexion a la base de datos aplicamos las migraciones.
+- (Bryan Paz) Agregamos las migraciones a nuestro proyecto.
+- (Bryan Paz) Corremos las migraciones con el comando *dotnet ef database update*.
+- (Bryan Paz) Verificamos si todo corre a la perfeccion.
+- (Bryan Paz) Subimos Cambios a la RamaMigraciones.
+- (Bryan Paz) Realizamos el merge al main para tener todo al dia.
+
 *20-09-2022*
 - (Bryan Paz) Se inician operaciones del api.
 - (Bryan Paz) Se inician las conexiones en el api.
@@ -6,4 +16,4 @@
 - (Bryan Paz) Se agregan validaciones a los modelos.
 - (Bryan Paz) Se agregan llaves a los modelos.
 - (Bryan Paz) Se agregan documentos extras para la documentacion.
-- (Bryan Paz) Subimos Cambios a la Rama Main (Solo por unica vez por ser primer push)
+- (Bryan Paz) Subimos Cambios a la Rama Main (Solo por unica vez por ser primer push).
