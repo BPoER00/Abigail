@@ -10,6 +10,18 @@
   - Etnia.
   - Factura.
 - (Bryan Paz) Arreglando los documentos y enlaces en un solo archivo llamado *Enlaces.txt*.
+- (Renato Granados) Inicialzación del FrontEnd con Next.js (proyecto-abigail-fe)
+- (Renato Granados) Configuración de Linter y estilos de código
+- (Renato Granados) Configuración de jsconfig.js
+- (Renato Granados) Implementación de las fuentes "poppins-regular" y "poppins-bold"
+- (Renato Granados) Creación de páginas:
+  - logIn: Pantalla de LogIn
+  - home (Home): Pantalla principal al acceder en el logIn
+  - reportes: Pantalla principal de reportes (aun no diseñado)
+  - accountsReceivable: Pantalla principal de cuentas por cobrar
+- (Renato Granados): Configuración de estilos globales
+- (Renato Granados): AUN NO usar la carpeta raíz del proyecto. Probablemente se deje para ser una LandingPage
+- (Renato Granados): Creación del directorio "components". Dentro de ella irán alojando los componentes comunes que se utilizarán a lo largo del proyecto. Deben ser componentes simples y al objetivo
 
 *24-09-2022*
 - (Grupo) Se Realizo una reunion.
