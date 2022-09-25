@@ -1,0 +1,59 @@
+:root {
+  --primary-color: #3661eb;
+  --secondary-color: #;
+  --white-bg: #f7f7f7;
+  --white: #ffffff;
+  --black: #1e1e1e;
+  --black-hover: #282828;
+  --gray: #b5b6bf;
+  --red-light: #fedadf;
+  --red: #ef8394;
+  --green-light: #d9f5dd;
+  --green: #79a47f;
+  --yellow: #cac77a;
+  --yellow-light: #f7f9e0;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+    Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Poppins-regular";
+  src: url("/font/Poppins-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Poppins-bold";
+  src: url("/font/Poppins-Bold.woff2") format("woff2");
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Poppins-bold", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
+    Droid Sans, Helvetica Neue, sans-serif;
+}
+
+p,
+a,
+span {
+  font-family: "Poppins-regular", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
+    Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
