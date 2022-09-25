@@ -1,3 +1,15 @@
+*25-09-2022*
+- (Renato Granados) Agregando documentación, Roadmap y diseños de figma.
+- (Bryan Paz) Agregamos los controladores de.
+  - Accion.
+  - Cabeza.
+  - Color.
+  - Detalle.
+  - Entrada y Salida.
+  - Estado Civil.
+  - Etnia.
+  - Factura.
+  
 *24-09-2022*
 - (Grupo) Se Realizo una reunion.
 
