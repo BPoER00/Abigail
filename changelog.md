@@ -1,3 +1,6 @@
+*25-09-2022*
+- (Renato Granados) Agregando documentación, Roadmap y diseños de figma
+
 *22-09-2022*
 - (Bryan Paz) Se inician operaciones en una nueva rama llamada RamaMigraciones.
 - (Bryan Paz) Se inician el modelo dbcontext para iniciar la conexion con la base de datos.
