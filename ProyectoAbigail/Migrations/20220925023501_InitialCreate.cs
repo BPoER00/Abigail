@@ -265,9 +265,9 @@ namespace ProyectoAbigail.Migrations
                     Estatus = table.Column<int>(type: "int", nullable: false),
                     Fecha_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Hora_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    RolId = table.Column<int>(type: "int", nullable: false),
-                    ModuloId = table.Column<int>(type: "int", nullable: false),
-                    AccionId = table.Column<int>(type: "int", nullable: false)
+                    RolId = table.Column<int>(type: "int", nullable: true),
+                    ModuloId = table.Column<int>(type: "int", nullable: true),
+                    AccionId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -276,20 +276,17 @@ namespace ProyectoAbigail.Migrations
                         name: "FK_Permiso_Accion_AccionId",
                         column: x => x.AccionId,
                         principalTable: "Accion",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Permiso_Modulo_ModuloId",
                         column: x => x.ModuloId,
                         principalTable: "Modulo",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Permiso_Rol_RolId",
                         column: x => x.RolId,
                         principalTable: "Rol",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -302,11 +299,11 @@ namespace ProyectoAbigail.Migrations
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Correo = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Rol_Id = table.Column<int>(type: "int", nullable: false),
-                    Sal = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Sal = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Estatus = table.Column<int>(type: "int", nullable: false),
                     Fecha_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Hora_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    RolId = table.Column<int>(type: "int", nullable: false)
+                    RolId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -315,8 +312,7 @@ namespace ProyectoAbigail.Migrations
                         name: "FK_Usuario_Rol_RolId",
                         column: x => x.RolId,
                         principalTable: "Rol",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -332,8 +328,8 @@ namespace ProyectoAbigail.Migrations
                     Estatus = table.Column<int>(type: "int", nullable: false),
                     Fecha_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Hora_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    SectorId = table.Column<int>(type: "int", nullable: false),
-                    Tipo_InmuebleId = table.Column<int>(type: "int", nullable: false)
+                    SectorId = table.Column<int>(type: "int", nullable: true),
+                    Tipo_InmuebleId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -342,14 +338,12 @@ namespace ProyectoAbigail.Migrations
                         name: "FK_Inmueble_Sector_SectorId",
                         column: x => x.SectorId,
                         principalTable: "Sector",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Inmueble_Tipo_Inmueble_Tipo_InmuebleId",
                         column: x => x.Tipo_InmuebleId,
                         principalTable: "Tipo_Inmueble",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -365,9 +359,9 @@ namespace ProyectoAbigail.Migrations
                     Estatus = table.Column<int>(type: "int", nullable: false),
                     Fecha_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Hora_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Tipo_VehiculoId = table.Column<int>(type: "int", nullable: false),
-                    MarcaId = table.Column<int>(type: "int", nullable: false),
-                    ColorId = table.Column<int>(type: "int", nullable: false)
+                    Tipo_VehiculoId = table.Column<int>(type: "int", nullable: true),
+                    MarcaId = table.Column<int>(type: "int", nullable: true),
+                    ColorId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -376,20 +370,17 @@ namespace ProyectoAbigail.Migrations
                         name: "FK_Vehiculo_Color_ColorId",
                         column: x => x.ColorId,
                         principalTable: "Color",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Vehiculo_Marca_MarcaId",
                         column: x => x.MarcaId,
                         principalTable: "Marca",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Vehiculo_Tipo_Vehiculo_Tipo_VehiculoId",
                         column: x => x.Tipo_VehiculoId,
                         principalTable: "Tipo_Vehiculo",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -401,7 +392,7 @@ namespace ProyectoAbigail.Migrations
                     Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Apellido = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Fecha_Nacimiento = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Telefono = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Telefono = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Cui = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Genero_Id = table.Column<int>(type: "int", nullable: false),
                     Estado_Civil_Id = table.Column<int>(type: "int", nullable: false),
@@ -411,11 +402,11 @@ namespace ProyectoAbigail.Migrations
                     Estatus = table.Column<int>(type: "int", nullable: false),
                     Fecha_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Hora_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    GeneroId = table.Column<int>(type: "int", nullable: false),
-                    Estado_CivilId = table.Column<int>(type: "int", nullable: false),
-                    EtniaId = table.Column<int>(type: "int", nullable: false),
-                    UsuarioId = table.Column<int>(type: "int", nullable: false),
-                    Rol_PersonaId = table.Column<int>(type: "int", nullable: false)
+                    GeneroId = table.Column<int>(type: "int", nullable: true),
+                    Estado_CivilId = table.Column<int>(type: "int", nullable: true),
+                    EtniaId = table.Column<int>(type: "int", nullable: true),
+                    UsuarioId = table.Column<int>(type: "int", nullable: true),
+                    Rol_PersonaId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -424,32 +415,27 @@ namespace ProyectoAbigail.Migrations
                         name: "FK_Persona_Estado_Civil_Estado_CivilId",
                         column: x => x.Estado_CivilId,
                         principalTable: "Estado_Civil",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Persona_Etnia_EtniaId",
                         column: x => x.EtniaId,
                         principalTable: "Etnia",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Persona_Genero_GeneroId",
                         column: x => x.GeneroId,
                         principalTable: "Genero",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Persona_Rol_Persona_Rol_PersonaId",
                         column: x => x.Rol_PersonaId,
                         principalTable: "Rol_Persona",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Persona_Usuario_UsuarioId",
                         column: x => x.UsuarioId,
                         principalTable: "Usuario",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -462,7 +448,7 @@ namespace ProyectoAbigail.Migrations
                     Estatus = table.Column<int>(type: "int", nullable: false),
                     Fecha_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Hora_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    PersonaId = table.Column<int>(type: "int", nullable: false)
+                    PersonaId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -471,8 +457,7 @@ namespace ProyectoAbigail.Migrations
                         name: "FK_Cabeza_Famila_Persona_PersonaId",
                         column: x => x.PersonaId,
                         principalTable: "Persona",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -486,8 +471,8 @@ namespace ProyectoAbigail.Migrations
                     Token = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Fecha_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Hora_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    PersonaId = table.Column<int>(type: "int", nullable: false),
-                    VehiculoId = table.Column<int>(type: "int", nullable: false)
+                    PersonaId = table.Column<int>(type: "int", nullable: true),
+                    VehiculoId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -496,14 +481,12 @@ namespace ProyectoAbigail.Migrations
                         name: "FK_Entrada_Salida_Persona_PersonaId",
                         column: x => x.PersonaId,
                         principalTable: "Persona",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Entrada_Salida_Vehiculo_VehiculoId",
                         column: x => x.VehiculoId,
                         principalTable: "Vehiculo",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -516,7 +499,7 @@ namespace ProyectoAbigail.Migrations
                     Estatus = table.Column<int>(type: "int", nullable: false),
                     Fecha_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Hora_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    PersonaId = table.Column<int>(type: "int", nullable: false)
+                    PersonaId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -525,8 +508,7 @@ namespace ProyectoAbigail.Migrations
                         name: "FK_Factura_Persona_PersonaId",
                         column: x => x.PersonaId,
                         principalTable: "Persona",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -540,8 +522,8 @@ namespace ProyectoAbigail.Migrations
                     Estatus = table.Column<int>(type: "int", nullable: false),
                     Fecha_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Hora_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    VehiculoId = table.Column<int>(type: "int", nullable: false),
-                    PersonaId = table.Column<int>(type: "int", nullable: false)
+                    VehiculoId = table.Column<int>(type: "int", nullable: true),
+                    PersonaId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -550,14 +532,12 @@ namespace ProyectoAbigail.Migrations
                         name: "FK_Prop_Vehiculo_Persona_PersonaId",
                         column: x => x.PersonaId,
                         principalTable: "Persona",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Prop_Vehiculo_Vehiculo_VehiculoId",
                         column: x => x.VehiculoId,
                         principalTable: "Vehiculo",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -571,7 +551,7 @@ namespace ProyectoAbigail.Migrations
                     Estatus = table.Column<int>(type: "int", nullable: false),
                     Fecha_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Hora_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    PersonaId = table.Column<int>(type: "int", nullable: false)
+                    PersonaId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -580,8 +560,7 @@ namespace ProyectoAbigail.Migrations
                         name: "FK_Propietario_Persona_PersonaId",
                         column: x => x.PersonaId,
                         principalTable: "Persona",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -596,8 +575,8 @@ namespace ProyectoAbigail.Migrations
                     Estatus = table.Column<int>(type: "int", nullable: false),
                     Fecha_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Hora_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    PersonaId = table.Column<int>(type: "int", nullable: false),
-                    Tipo_ReporteId = table.Column<int>(type: "int", nullable: false)
+                    PersonaId = table.Column<int>(type: "int", nullable: true),
+                    Tipo_ReporteId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -606,14 +585,12 @@ namespace ProyectoAbigail.Migrations
                         name: "FK_Reporte_Persona_PersonaId",
                         column: x => x.PersonaId,
                         principalTable: "Persona",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Reporte_Tipo_Reporte_Tipo_ReporteId",
                         column: x => x.Tipo_ReporteId,
                         principalTable: "Tipo_Reporte",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -628,8 +605,8 @@ namespace ProyectoAbigail.Migrations
                     Estatus = table.Column<int>(type: "int", nullable: false),
                     Fecha_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Hora_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    FacturaId = table.Column<int>(type: "int", nullable: false),
-                    InmuebleId = table.Column<int>(type: "int", nullable: false)
+                    FacturaId = table.Column<int>(type: "int", nullable: true),
+                    InmuebleId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -638,14 +615,12 @@ namespace ProyectoAbigail.Migrations
                         name: "FK_Detalle_Factura_FacturaId",
                         column: x => x.FacturaId,
                         principalTable: "Factura",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Detalle_Inmueble_InmuebleId",
                         column: x => x.InmuebleId,
                         principalTable: "Inmueble",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -659,8 +634,8 @@ namespace ProyectoAbigail.Migrations
                     Estatus = table.Column<int>(type: "int", nullable: false),
                     Fecha_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Hora_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    PropietarioId = table.Column<int>(type: "int", nullable: false),
-                    InmuebleId = table.Column<int>(type: "int", nullable: false)
+                    PropietarioId = table.Column<int>(type: "int", nullable: true),
+                    InmuebleId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -669,14 +644,12 @@ namespace ProyectoAbigail.Migrations
                         name: "FK_Prop_Inmueble_Inmueble_InmuebleId",
                         column: x => x.InmuebleId,
                         principalTable: "Inmueble",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Prop_Inmueble_Propietario_PropietarioId",
                         column: x => x.PropietarioId,
                         principalTable: "Propietario",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -692,7 +665,7 @@ namespace ProyectoAbigail.Migrations
                     Estatus = table.Column<int>(type: "int", nullable: false),
                     Fecha_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Hora_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Prop_InmuebleId = table.Column<int>(type: "int", nullable: false)
+                    Prop_InmuebleId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -701,8 +674,7 @@ namespace ProyectoAbigail.Migrations
                         name: "FK_Inmueble_Alquilados_Prop_Inmueble_Prop_InmuebleId",
                         column: x => x.Prop_InmuebleId,
                         principalTable: "Prop_Inmueble",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(

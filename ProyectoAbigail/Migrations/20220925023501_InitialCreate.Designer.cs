@@ -12,7 +12,7 @@ using ProyectoAbigail.Models;
 namespace ProyectoAbigail.Migrations
 {
     [DbContext(typeof(ConexionContext))]
-    [Migration("20220922074005_InitialCreate")]
+    [Migration("20220925023501_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -67,7 +67,7 @@ namespace ProyectoAbigail.Migrations
                     b.Property<DateTime>("Hora_commit")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("PersonaId")
+                    b.Property<int?>("PersonaId")
                         .HasColumnType("int");
 
                     b.Property<int>("Persona_Id")
@@ -121,7 +121,7 @@ namespace ProyectoAbigail.Migrations
                     b.Property<int>("Estatus")
                         .HasColumnType("int");
 
-                    b.Property<int>("FacturaId")
+                    b.Property<int?>("FacturaId")
                         .HasColumnType("int");
 
                     b.Property<int>("Factura_Id")
@@ -133,7 +133,7 @@ namespace ProyectoAbigail.Migrations
                     b.Property<DateTime>("Hora_commit")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("InmuebleId")
+                    b.Property<int?>("InmuebleId")
                         .HasColumnType("int");
 
                     b.Property<int>("Inmueble_Id")
@@ -162,7 +162,7 @@ namespace ProyectoAbigail.Migrations
                     b.Property<DateTime>("Hora_commit")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("PersonaId")
+                    b.Property<int?>("PersonaId")
                         .HasColumnType("int");
 
                     b.Property<int>("Persona_Id")
@@ -172,7 +172,7 @@ namespace ProyectoAbigail.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("VehiculoId")
+                    b.Property<int?>("VehiculoId")
                         .HasColumnType("int");
 
                     b.Property<int>("Vehiculo_Id")
@@ -256,7 +256,7 @@ namespace ProyectoAbigail.Migrations
                     b.Property<DateTime>("Hora_commit")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("PersonaId")
+                    b.Property<int?>("PersonaId")
                         .HasColumnType("int");
 
                     b.Property<int>("Persona_Id")
@@ -347,13 +347,13 @@ namespace ProyectoAbigail.Migrations
                     b.Property<long>("Precio_Inmueble")
                         .HasColumnType("bigint");
 
-                    b.Property<int>("SectorId")
+                    b.Property<int?>("SectorId")
                         .HasColumnType("int");
 
                     b.Property<int>("Sector_Id")
                         .HasColumnType("int");
 
-                    b.Property<int>("Tipo_InmuebleId")
+                    b.Property<int?>("Tipo_InmuebleId")
                         .HasColumnType("int");
 
                     b.Property<int>("Tipo_Inmueble_Id")
@@ -398,7 +398,7 @@ namespace ProyectoAbigail.Migrations
                     b.Property<int>("Inmueble_Id")
                         .HasColumnType("int");
 
-                    b.Property<int>("Prop_InmuebleId")
+                    b.Property<int?>("Prop_InmuebleId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -497,7 +497,7 @@ namespace ProyectoAbigail.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("AccionId")
+                    b.Property<int?>("AccionId")
                         .HasColumnType("int");
 
                     b.Property<int>("Accion_Id")
@@ -516,13 +516,13 @@ namespace ProyectoAbigail.Migrations
                     b.Property<DateTime>("Hora_commit")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("ModuloId")
+                    b.Property<int?>("ModuloId")
                         .HasColumnType("int");
 
                     b.Property<int>("Modulo_Id")
                         .HasColumnType("int");
 
-                    b.Property<int>("RolId")
+                    b.Property<int?>("RolId")
                         .HasColumnType("int");
 
                     b.Property<int>("Rol_Id")
@@ -555,7 +555,7 @@ namespace ProyectoAbigail.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Estado_CivilId")
+                    b.Property<int?>("Estado_CivilId")
                         .HasColumnType("int");
 
                     b.Property<int>("Estado_Civil_Id")
@@ -564,7 +564,7 @@ namespace ProyectoAbigail.Migrations
                     b.Property<int>("Estatus")
                         .HasColumnType("int");
 
-                    b.Property<int>("EtniaId")
+                    b.Property<int?>("EtniaId")
                         .HasColumnType("int");
 
                     b.Property<int>("Etnia_Id")
@@ -576,7 +576,7 @@ namespace ProyectoAbigail.Migrations
                     b.Property<DateTime>("Fecha_commit")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("GeneroId")
+                    b.Property<int?>("GeneroId")
                         .HasColumnType("int");
 
                     b.Property<int>("Genero_Id")
@@ -589,17 +589,16 @@ namespace ProyectoAbigail.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Rol_PersonaId")
+                    b.Property<int?>("Rol_PersonaId")
                         .HasColumnType("int");
 
                     b.Property<int>("Rol_Persona_Id")
                         .HasColumnType("int");
 
                     b.Property<string>("Telefono")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UsuarioId")
+                    b.Property<int?>("UsuarioId")
                         .HasColumnType("int");
 
                     b.Property<int>("Usuario_Id")
@@ -637,13 +636,13 @@ namespace ProyectoAbigail.Migrations
                     b.Property<DateTime>("Hora_commit")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("InmuebleId")
+                    b.Property<int?>("InmuebleId")
                         .HasColumnType("int");
 
                     b.Property<int>("Inmueble_Id")
                         .HasColumnType("int");
 
-                    b.Property<int>("PropietarioId")
+                    b.Property<int?>("PropietarioId")
                         .HasColumnType("int");
 
                     b.Property<int>("Propietario_Id")
@@ -675,13 +674,13 @@ namespace ProyectoAbigail.Migrations
                     b.Property<DateTime>("Hora_commit")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("PersonaId")
+                    b.Property<int?>("PersonaId")
                         .HasColumnType("int");
 
                     b.Property<int>("Persona_Id")
                         .HasColumnType("int");
 
-                    b.Property<int>("VehiculoId")
+                    b.Property<int?>("VehiculoId")
                         .HasColumnType("int");
 
                     b.Property<int>("Vehiculo_Id")
@@ -717,7 +716,7 @@ namespace ProyectoAbigail.Migrations
                     b.Property<DateTime>("Hora_commit")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("PersonaId")
+                    b.Property<int?>("PersonaId")
                         .HasColumnType("int");
 
                     b.Property<int>("Persona_Id")
@@ -751,13 +750,13 @@ namespace ProyectoAbigail.Migrations
                     b.Property<DateTime>("Hora_commit")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("PersonaId")
+                    b.Property<int?>("PersonaId")
                         .HasColumnType("int");
 
                     b.Property<int>("Persona_Id")
                         .HasColumnType("int");
 
-                    b.Property<int>("Tipo_ReporteId")
+                    b.Property<int?>("Tipo_ReporteId")
                         .HasColumnType("int");
 
                     b.Property<int>("Tipo_Reporte_Id")
@@ -957,14 +956,13 @@ namespace ProyectoAbigail.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("RolId")
+                    b.Property<int?>("RolId")
                         .HasColumnType("int");
 
                     b.Property<int>("Rol_Id")
                         .HasColumnType("int");
 
                     b.Property<string>("Sal")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("User")
@@ -986,7 +984,7 @@ namespace ProyectoAbigail.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("ColorId")
+                    b.Property<int?>("ColorId")
                         .HasColumnType("int");
 
                     b.Property<int>("Color_Id")
@@ -1001,7 +999,7 @@ namespace ProyectoAbigail.Migrations
                     b.Property<DateTime>("Hora_commit")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("MarcaId")
+                    b.Property<int?>("MarcaId")
                         .HasColumnType("int");
 
                     b.Property<int>("Marca_Id")
@@ -1011,7 +1009,7 @@ namespace ProyectoAbigail.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Tipo_VehiculoId")
+                    b.Property<int?>("Tipo_VehiculoId")
                         .HasColumnType("int");
 
                     b.Property<string>("anio")
@@ -1033,9 +1031,7 @@ namespace ProyectoAbigail.Migrations
                 {
                     b.HasOne("ProyectoAbigail.Models.Persona", "Persona")
                         .WithMany()
-                        .HasForeignKey("PersonaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PersonaId");
 
                     b.Navigation("Persona");
                 });
@@ -1044,15 +1040,11 @@ namespace ProyectoAbigail.Migrations
                 {
                     b.HasOne("ProyectoAbigail.Models.Factura", "Factura")
                         .WithMany()
-                        .HasForeignKey("FacturaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("FacturaId");
 
                     b.HasOne("ProyectoAbigail.Models.Inmueble", "Inmueble")
                         .WithMany()
-                        .HasForeignKey("InmuebleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("InmuebleId");
 
                     b.Navigation("Factura");
 
@@ -1063,15 +1055,11 @@ namespace ProyectoAbigail.Migrations
                 {
                     b.HasOne("ProyectoAbigail.Models.Persona", "Persona")
                         .WithMany()
-                        .HasForeignKey("PersonaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PersonaId");
 
                     b.HasOne("ProyectoAbigail.Models.Vehiculo", "Vehiculo")
                         .WithMany()
-                        .HasForeignKey("VehiculoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("VehiculoId");
 
                     b.Navigation("Persona");
 
@@ -1082,9 +1070,7 @@ namespace ProyectoAbigail.Migrations
                 {
                     b.HasOne("ProyectoAbigail.Models.Persona", "Persona")
                         .WithMany()
-                        .HasForeignKey("PersonaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PersonaId");
 
                     b.Navigation("Persona");
                 });
@@ -1093,15 +1079,11 @@ namespace ProyectoAbigail.Migrations
                 {
                     b.HasOne("ProyectoAbigail.Models.Sector", "Sector")
                         .WithMany()
-                        .HasForeignKey("SectorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("SectorId");
 
                     b.HasOne("ProyectoAbigail.Models.Tipo_Inmueble", "Tipo_Inmueble")
                         .WithMany()
-                        .HasForeignKey("Tipo_InmuebleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("Tipo_InmuebleId");
 
                     b.Navigation("Sector");
 
@@ -1112,9 +1094,7 @@ namespace ProyectoAbigail.Migrations
                 {
                     b.HasOne("ProyectoAbigail.Models.Prop_Inmueble", "Prop_Inmueble")
                         .WithMany()
-                        .HasForeignKey("Prop_InmuebleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("Prop_InmuebleId");
 
                     b.Navigation("Prop_Inmueble");
                 });
@@ -1123,21 +1103,15 @@ namespace ProyectoAbigail.Migrations
                 {
                     b.HasOne("ProyectoAbigail.Models.Accion", "Accion")
                         .WithMany()
-                        .HasForeignKey("AccionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("AccionId");
 
                     b.HasOne("ProyectoAbigail.Models.Modulo", "Modulo")
                         .WithMany()
-                        .HasForeignKey("ModuloId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ModuloId");
 
                     b.HasOne("ProyectoAbigail.Models.Rol", "Rol")
                         .WithMany()
-                        .HasForeignKey("RolId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("RolId");
 
                     b.Navigation("Accion");
 
@@ -1150,33 +1124,23 @@ namespace ProyectoAbigail.Migrations
                 {
                     b.HasOne("ProyectoAbigail.Models.Estado_Civil", "Estado_Civil")
                         .WithMany()
-                        .HasForeignKey("Estado_CivilId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("Estado_CivilId");
 
                     b.HasOne("ProyectoAbigail.Models.Etnia", "Etnia")
                         .WithMany()
-                        .HasForeignKey("EtniaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("EtniaId");
 
                     b.HasOne("ProyectoAbigail.Models.Genero", "Genero")
                         .WithMany()
-                        .HasForeignKey("GeneroId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("GeneroId");
 
                     b.HasOne("ProyectoAbigail.Models.Rol_Persona", "Rol_Persona")
                         .WithMany()
-                        .HasForeignKey("Rol_PersonaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("Rol_PersonaId");
 
                     b.HasOne("ProyectoAbigail.Models.Usuario", "Usuario")
                         .WithMany()
-                        .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UsuarioId");
 
                     b.Navigation("Estado_Civil");
 
@@ -1193,15 +1157,11 @@ namespace ProyectoAbigail.Migrations
                 {
                     b.HasOne("ProyectoAbigail.Models.Inmueble", "Inmueble")
                         .WithMany()
-                        .HasForeignKey("InmuebleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("InmuebleId");
 
                     b.HasOne("ProyectoAbigail.Models.Propietario", "Propietario")
                         .WithMany()
-                        .HasForeignKey("PropietarioId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PropietarioId");
 
                     b.Navigation("Inmueble");
 
@@ -1212,15 +1172,11 @@ namespace ProyectoAbigail.Migrations
                 {
                     b.HasOne("ProyectoAbigail.Models.Persona", "Persona")
                         .WithMany()
-                        .HasForeignKey("PersonaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PersonaId");
 
                     b.HasOne("ProyectoAbigail.Models.Vehiculo", "Vehiculo")
                         .WithMany()
-                        .HasForeignKey("VehiculoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("VehiculoId");
 
                     b.Navigation("Persona");
 
@@ -1231,9 +1187,7 @@ namespace ProyectoAbigail.Migrations
                 {
                     b.HasOne("ProyectoAbigail.Models.Persona", "Persona")
                         .WithMany()
-                        .HasForeignKey("PersonaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PersonaId");
 
                     b.Navigation("Persona");
                 });
@@ -1242,15 +1196,11 @@ namespace ProyectoAbigail.Migrations
                 {
                     b.HasOne("ProyectoAbigail.Models.Persona", "Persona")
                         .WithMany()
-                        .HasForeignKey("PersonaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PersonaId");
 
                     b.HasOne("ProyectoAbigail.Models.Tipo_Reporte", "Tipo_Reporte")
                         .WithMany()
-                        .HasForeignKey("Tipo_ReporteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("Tipo_ReporteId");
 
                     b.Navigation("Persona");
 
@@ -1261,9 +1211,7 @@ namespace ProyectoAbigail.Migrations
                 {
                     b.HasOne("ProyectoAbigail.Models.Rol", "Rol")
                         .WithMany()
-                        .HasForeignKey("RolId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("RolId");
 
                     b.Navigation("Rol");
                 });
@@ -1272,21 +1220,15 @@ namespace ProyectoAbigail.Migrations
                 {
                     b.HasOne("ProyectoAbigail.Models.Color", "Color")
                         .WithMany()
-                        .HasForeignKey("ColorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ColorId");
 
                     b.HasOne("ProyectoAbigail.Models.Marca", "Marca")
                         .WithMany()
-                        .HasForeignKey("MarcaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("MarcaId");
 
                     b.HasOne("ProyectoAbigail.Models.Tipo_Vehiculo", "Tipo_Vehiculo")
                         .WithMany()
-                        .HasForeignKey("Tipo_VehiculoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("Tipo_VehiculoId");
 
                     b.Navigation("Color");
 

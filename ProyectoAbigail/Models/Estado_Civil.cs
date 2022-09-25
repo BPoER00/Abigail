@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 using ProyectoAbigail.Resources;
@@ -9,6 +10,13 @@ namespace ProyectoAbigail.Models
 {
     public class Estado_Civil
     {
+#region Constantes
+        [NotMapped]
+        public const int ESTADO_ACTIVO = 1;
+        [NotMapped]
+        public const int ESTADO_INACTIVO = 0;
+#endregion
+
 #region Propiedades
         [Key]    
         public int Id { get; set; }

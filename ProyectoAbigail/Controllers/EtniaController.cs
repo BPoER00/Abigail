@@ -1,17 +1,21 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using ProyectoAbigail.Models;
+using ProyectoAbigail.Resources;
+
 namespace ProyectoAbigail.Controllers
 {
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.EntityFrameworkCore;
-    using Models;
-    using Resources;
-
     [ApiController]
-    [Route("[controller]")]
-    public class AccionController : ControllerBase
+    [Route("api/[controller]")]
+    public class EtniaController : ControllerBase
     {
         private readonly ConexionContext DbContext;
 
-        public AccionController(ConexionContext _DbContext)
+        public EtniaController(ConexionContext _DbContext)
         {
             this.DbContext = _DbContext;
         }
@@ -21,10 +25,11 @@ namespace ProyectoAbigail.Controllers
         {
             try
             {
-                var acciones = await this.DbContext.Accion
-                .Where(x => x.Estatus == Accion.ESTADO_INACTIVO)
+                var etnia = await this.DbContext.Etnia
+                .Where(x => x.Estatus == Etnia.ESTADO_ACTIVO)
                 .ToListAsync();
-                if(acciones.Count == 0)
+
+                if(etnia.Count == 0)
                 {
                     return new Response{
                         Resultado = Mensajes.ESTADO_FALLIDO,
@@ -36,7 +41,7 @@ namespace ProyectoAbigail.Controllers
                 {
                     return new Response{
                         Resultado = Mensajes.ESTADO_EXITOSO,
-                        Data = acciones,
+                        Data = etnia,
                         Messages = Mensajes.MensajeEncontrado,
                     };
                 }
@@ -56,8 +61,12 @@ namespace ProyectoAbigail.Controllers
         {
             try
             {
-                var acciones = await this.DbContext.Accion.FindAsync(id);
-                if(acciones == null)
+                var etnia = await this.DbContext.Etnia
+                .Where(x => x.Id == id)
+                .AsNoTracking()
+                .AnyAsync();
+
+                if(!etnia)
                 {
                     return new Response{
                         Resultado = Mensajes.ESTADO_FALLIDO,
@@ -69,7 +78,7 @@ namespace ProyectoAbigail.Controllers
                 {
                     return new Response{
                         Resultado = Mensajes.ESTADO_EXITOSO,
-                        Data = acciones,
+                        Data = etnia,
                         Messages = Mensajes.MensajeEncontrado,
                     };
                 }
@@ -84,7 +93,7 @@ namespace ProyectoAbigail.Controllers
         }
 
         [HttpPost("Post")]
-        public async Task<Response> post(Accion accion)
+        public async Task<Response> post(Etnia etnia)
         {
             try
             {
@@ -98,11 +107,12 @@ namespace ProyectoAbigail.Controllers
                 }
                 else
                 {
-                    this.DbContext.Accion.Add(accion);
+                    this.DbContext.Etnia.Add(etnia);
                     await this.DbContext.SaveChangesAsync();
+
                     return new Response{
                         Resultado = Mensajes.ESTADO_EXITOSO,
-                        Data = accion,
+                        Data = etnia,
                         Messages = Mensajes.DatosGuardatos
                     };
                 }
@@ -118,15 +128,15 @@ namespace ProyectoAbigail.Controllers
         }
     
         [HttpPut("Put/{id}")]    
-        public async Task<Response> Put(int id, Accion accion)
+        public async Task<Response> Put(int id, Etnia etnia)
         {
             try
             {
-                if(accion.Id == 0)
+                if(etnia.Id == 0)
                 {
-                    accion.Id = id;
+                    etnia.Id = id;
                 }
-                else if(accion.Id != id)
+                else if(etnia.Id != id)
                 {
                     return new Response{
                         Resultado = Mensajes.ESTADO_FALLIDO,
@@ -135,7 +145,7 @@ namespace ProyectoAbigail.Controllers
                     };
                 }
 
-                if(!await this.DbContext.Accion.Where(x => x.Id == id).AsNoTracking().AnyAsync())
+                if(!await this.DbContext.Etnia.Where(x => x.Id == id).AsNoTracking().AnyAsync())
                 {
                     return new Response{
                         Resultado = Mensajes.ESTADO_FALLIDO,
@@ -145,7 +155,7 @@ namespace ProyectoAbigail.Controllers
                 }
                 else
                 {
-                    this.DbContext.Entry(accion).State = EntityState.Modified;
+                    this.DbContext.Entry(etnia).State = EntityState.Modified;
                     if(!ModelState.IsValid)
                     {
                         return new Response{
@@ -159,7 +169,7 @@ namespace ProyectoAbigail.Controllers
                         await this.DbContext.SaveChangesAsync();
                         return new Response{
                             Resultado = Mensajes.ESTADO_EXITOSO,
-                            Data = accion,
+                            Data = etnia,
                             Messages = Mensajes.DatosActualizados
                         };
                     }
@@ -180,8 +190,8 @@ namespace ProyectoAbigail.Controllers
         {
             try
             {
-                var accion = await this.DbContext.Accion.FindAsync(id);
-                if(accion.Estatus == Accion.ESTADO_INACTIVO)
+                var etnia = await this.DbContext.Etnia.FindAsync(id);
+                if(etnia.Estatus == Etnia.ESTADO_INACTIVO)
                 {
                     return new Response{
                         Resultado = Mensajes.ESTADO_FALLIDO,
@@ -191,12 +201,13 @@ namespace ProyectoAbigail.Controllers
                 }
                 else
                 {
-                    accion.Estatus = Accion.ESTADO_INACTIVO;
-                    this.DbContext.Entry(accion).State = EntityState.Modified;
+                    etnia.Estatus = Etnia.ESTADO_INACTIVO;
+                    this.DbContext.Entry(etnia).State = EntityState.Modified;
                     await this.DbContext.SaveChangesAsync();
+
                     return new Response{
                         Resultado = Mensajes.ESTADO_EXITOSO,
-                        Data = accion,
+                        Data = etnia,
                         Messages = Mensajes.Desactivado
                     };
 
@@ -209,6 +220,6 @@ namespace ProyectoAbigail.Controllers
                     Messages = $"Error: {e.Message}"
                 };
             }
-        }
+        }        
     }
 }
