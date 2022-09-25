@@ -1,17 +1,17 @@
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using ProyectoAbigail.Models;
+using ProyectoAbigail.Resources;
+
 namespace ProyectoAbigail.Controllers
 {
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.EntityFrameworkCore;
-    using Models;
-    using Resources;
-
     [ApiController]
-    [Route("[controller]")]
-    public class AccionController : ControllerBase
+    [Route("api/[controller]")]
+    public class ColorController : ControllerBase
     {
         private readonly ConexionContext DbContext;
 
-        public AccionController(ConexionContext _DbContext)
+        public ColorController(ConexionContext _DbContext)
         {
             this.DbContext = _DbContext;
         }
@@ -21,10 +21,11 @@ namespace ProyectoAbigail.Controllers
         {
             try
             {
-                var acciones = await this.DbContext.Accion
-                .Where(x => x.Estatus == Accion.ESTADO_INACTIVO)
+                var color = await this.DbContext.Color
+                .Where(x => x.Estatus == Color.ESTADO_ACTIVO)
                 .ToListAsync();
-                if(acciones.Count == 0)
+                
+                if(color.Count == 0)
                 {
                     return new Response{
                         Resultado = Mensajes.ESTADO_FALLIDO,
@@ -36,7 +37,7 @@ namespace ProyectoAbigail.Controllers
                 {
                     return new Response{
                         Resultado = Mensajes.ESTADO_EXITOSO,
-                        Data = acciones,
+                        Data = color,
                         Messages = Mensajes.MensajeEncontrado,
                     };
                 }
@@ -56,8 +57,12 @@ namespace ProyectoAbigail.Controllers
         {
             try
             {
-                var acciones = await this.DbContext.Accion.FindAsync(id);
-                if(acciones == null)
+                var color = await this.DbContext.Color
+                .Where(x => x.Id == id)
+                .AsNoTracking()
+                .AnyAsync();
+
+                if(!color)
                 {
                     return new Response{
                         Resultado = Mensajes.ESTADO_FALLIDO,
@@ -69,7 +74,7 @@ namespace ProyectoAbigail.Controllers
                 {
                     return new Response{
                         Resultado = Mensajes.ESTADO_EXITOSO,
-                        Data = acciones,
+                        Data = color,
                         Messages = Mensajes.MensajeEncontrado,
                     };
                 }
@@ -84,7 +89,7 @@ namespace ProyectoAbigail.Controllers
         }
 
         [HttpPost("Post")]
-        public async Task<Response> post(Accion accion)
+        public async Task<Response> post(Color color)
         {
             try
             {
@@ -98,11 +103,11 @@ namespace ProyectoAbigail.Controllers
                 }
                 else
                 {
-                    this.DbContext.Accion.Add(accion);
+                    this.DbContext.Color.Add(color);
                     await this.DbContext.SaveChangesAsync();
                     return new Response{
                         Resultado = Mensajes.ESTADO_EXITOSO,
-                        Data = accion,
+                        Data = color,
                         Messages = Mensajes.DatosGuardatos
                     };
                 }
@@ -118,15 +123,15 @@ namespace ProyectoAbigail.Controllers
         }
     
         [HttpPut("Put/{id}")]    
-        public async Task<Response> Put(int id, Accion accion)
+        public async Task<Response> Put(int id, Color color)
         {
             try
             {
-                if(accion.Id == 0)
+                if(color.Id == 0)
                 {
-                    accion.Id = id;
+                    color.Id = id;
                 }
-                else if(accion.Id != id)
+                else if(color.Id != id)
                 {
                     return new Response{
                         Resultado = Mensajes.ESTADO_FALLIDO,
@@ -135,7 +140,7 @@ namespace ProyectoAbigail.Controllers
                     };
                 }
 
-                if(!await this.DbContext.Accion.Where(x => x.Id == id).AsNoTracking().AnyAsync())
+                if(!await this.DbContext.Color.Where(x => x.Id == id).AsNoTracking().AnyAsync())
                 {
                     return new Response{
                         Resultado = Mensajes.ESTADO_FALLIDO,
@@ -145,7 +150,7 @@ namespace ProyectoAbigail.Controllers
                 }
                 else
                 {
-                    this.DbContext.Entry(accion).State = EntityState.Modified;
+                    this.DbContext.Entry(color).State = EntityState.Modified;
                     if(!ModelState.IsValid)
                     {
                         return new Response{
@@ -159,7 +164,7 @@ namespace ProyectoAbigail.Controllers
                         await this.DbContext.SaveChangesAsync();
                         return new Response{
                             Resultado = Mensajes.ESTADO_EXITOSO,
-                            Data = accion,
+                            Data = color,
                             Messages = Mensajes.DatosActualizados
                         };
                     }
@@ -180,8 +185,8 @@ namespace ProyectoAbigail.Controllers
         {
             try
             {
-                var accion = await this.DbContext.Accion.FindAsync(id);
-                if(accion.Estatus == Accion.ESTADO_INACTIVO)
+                var color = await this.DbContext.Color.FindAsync(id);
+                if(color.Estatus == Color.ESTADO_INACTIVO)
                 {
                     return new Response{
                         Resultado = Mensajes.ESTADO_FALLIDO,
@@ -191,12 +196,12 @@ namespace ProyectoAbigail.Controllers
                 }
                 else
                 {
-                    accion.Estatus = Accion.ESTADO_INACTIVO;
-                    this.DbContext.Entry(accion).State = EntityState.Modified;
+                    color.Estatus = Color.ESTADO_INACTIVO;
+                    this.DbContext.Entry(color).State = EntityState.Modified;
                     await this.DbContext.SaveChangesAsync();
                     return new Response{
                         Resultado = Mensajes.ESTADO_EXITOSO,
-                        Data = accion,
+                        Data = color,
                         Messages = Mensajes.Desactivado
                     };
 
@@ -209,6 +214,6 @@ namespace ProyectoAbigail.Controllers
                     Messages = $"Error: {e.Message}"
                 };
             }
-        }
-    }
+        }        
+    }        
 }

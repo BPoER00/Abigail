@@ -4,20 +4,19 @@ namespace ProyectoAbigail.Models
 {
     public class ConexionContext : DbContext
     {
-        protected readonly IConfiguration Configuration;
 
         public ConexionContext(IConfiguration _Configuration)
         {
-            this.Configuration = _Configuration;
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
+            var connection = "Data Source=localhost; Initial Catalog=ProyectoA; User Id=sa; Password=Password#2022";
             // connect to sql server with connection string from app settings
-            options.UseSqlServer(Configuration.GetConnectionString("WebApiDatabase"));
+            options.UseSqlServer(connection);
         }
 
-        public DbSet<Accion> Accion { get; set; }
+        public DbSet<Accion> Accion { get; set; } 
         public DbSet<Cabeza_Famila> Cabeza_Famila { get; set; }
         public DbSet<Color> Color { get; set; }
         public DbSet<Detalle> Detalle  { get; set; }
@@ -46,8 +45,5 @@ namespace ProyectoAbigail.Models
         public DbSet<Tipo_Vehiculo> Tipo_Vehiculo  { get; set; }
         public DbSet<Usuario> Usuario  { get; set; }
         public DbSet<Vehiculo> Vehiculo  { get; set; }
-
-
-
     }
 }

@@ -1,5 +1,24 @@
 *25-09-2022*
-- (Renato Granados) Agregando documentación, Roadmap y diseños de figma
+- (Renato Granados) Agregando documentación, Roadmap y diseños de figma.
+- (Bryan Paz) Agregamos los controladores de.
+  - Accion.
+  - Cabeza.
+  - Color.
+  - Detalle.
+  - Entrada y Salida.
+  - Estado Civil.
+  - Etnia.
+  - Factura.
+  
+*24-09-2022*
+- (Grupo) Se Realizo una reunion.
+
+*23-09-2022*
+- (Bryan Paz) Se arregla la conexion a la base de datos.
+- (Bryan Paz) Se corrieron las migraciones denuevo agregando nuevos campos a el modelo Usuarios.
+- (Bryan Paz) Se Agrega el Controlador con sus distintos metodos.
+- (Bryan Paz) Se realiza la prueba en Postman y validamos.
+- (Bryan Paz) El AccionController.cs la prueba fue exitosa.
 
 *22-09-2022*
 - (Bryan Paz) Se inician operaciones en una nueva rama llamada RamaMigraciones.
