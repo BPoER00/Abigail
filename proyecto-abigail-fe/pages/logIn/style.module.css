@@ -1,4 +1,39 @@
-/* Aquí escriban los estilos de esta página */
+.container {
+  background-color: var(--black);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 10px;
+}
+
+.containerLogIn {
+  width: 100%;
+  max-width: 600px;
+  padding: 50px 80px 20px;
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  box-shadow: 0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.36), 0.8px 1.6px 2px -0.8px hsl(var(--shadow-color) / 0.36),
+    2.1px 4.1px 5.2px -1.7px hsl(var(--shadow-color) / 0.36), 5px 10px 12.6px -2.5px hsl(var(--shadow-color) / 0.36);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 3.2rem;
+}
+
 .title {
-  color: var(--black);
+  font-size: 1.6rem;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.lostPassword {
+  color: var(--primary-color);
 }

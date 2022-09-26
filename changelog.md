@@ -28,6 +28,12 @@
 - (Renato Granados): Configuración de estilos globales
 - (Renato Granados): AUN NO usar la carpeta raíz del proyecto. Probablemente se deje para ser una LandingPage
 - (Renato Granados): Creación del directorio "components". Dentro de ella irán alojando los componentes comunes que se utilizarán a lo largo del proyecto. Deben ser componentes simples y al objetivo
+- (Renato Granados): Agregando la pantalla LogIn al FrontEnd
+- (Renato Granados): Se crearon los siguientes componentes reutilizables:
+  - Button
+  - FormLogIn (no tan reutilizable por el momento)
+  - Logo
+  - Input
 
 *24-09-2022*
 - (Grupo) Se Realizo una reunion.
