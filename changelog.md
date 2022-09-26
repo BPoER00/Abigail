@@ -9,6 +9,12 @@
   - Estado Civil.
   - Etnia.
   - Factura.
+  - Familia.
+  - Genero.
+  - Inmueble_Alquilado.
+  - Inmueble.
+  - Inquilino.
+  - Marca.
 - (Bryan Paz) Arreglando los documentos y enlaces en un solo archivo llamado *Enlaces.txt*.
 - (Renato Granados) Inicialzación del FrontEnd con Next.js (proyecto-abigail-fe)
 - (Renato Granados) Configuración de Linter y estilos de código

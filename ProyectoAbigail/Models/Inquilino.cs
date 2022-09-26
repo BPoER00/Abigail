@@ -43,5 +43,9 @@ namespace ProyectoAbigail.Models
             this.Hora_commit = DateTime.Now;            
         }
 #endregion
+
+#region  FK
+        public virtual Persona Persona { get; set; }
+#endregion
     }
 }
