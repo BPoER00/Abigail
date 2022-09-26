@@ -1,0 +1,20 @@
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.label {
+  color: var(--black);
+  font-size: 1.2rem;
+}
+
+.input {
+  padding: 12px 10px;
+  border: var(--gray) 1px solid;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: var(--black);
+  font-family: "Poppins-regular", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
+    Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
