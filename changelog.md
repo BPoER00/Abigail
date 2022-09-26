@@ -1,3 +1,6 @@
+*26-09-2022*
+- (Renato Granados) Probando fork
+
 *25-09-2022*
 - (Renato Granados) Agregando documentacion, Roadmap y diseños de figma.
 - (Bryan Paz) Agregamos los controladores de.
