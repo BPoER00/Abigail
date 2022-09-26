@@ -15,6 +15,12 @@
   - Inmueble.
   - Inquilino.
   - Marca.
+  - Modulo.
+  - Permiso.
+  - Persona.
+  - Propietario.
+  - PropInmueble.
+  - PropVehiculo
 - (Bryan Paz) Arreglando los documentos y enlaces en un solo archivo llamado *Enlaces.txt*.
 - (Renato Granados) Inicialzación del FrontEnd con Next.js (proyecto-abigail-fe)
 - (Renato Granados) Configuración de Linter y estilos de código
