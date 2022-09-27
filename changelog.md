@@ -1,3 +1,7 @@
+*26/09/2022
+(Billy ayala, adjunto la bitacora de reuniones con las responsabilidades de cada uno desde que inicio el curso)
+
+
 *25-09-2022*
 - (Renato Granados) Agregando documentacion, Roadmap y diseños de figma.
 - (Bryan Paz) Agregamos los controladores de.
