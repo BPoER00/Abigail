@@ -1,5 +1,16 @@
-*26/09/2022
-(Billy ayala, adjunto la bitacora de reuniones con las responsabilidades de cada uno desde que inicio el curso)
+
+*02-10-2022*
+- (Bryan Paz) Agregando Controladores de.
+	- Propietario.
+	- Reporte.
+	- Rol.
+	- RolPersona.
+	- Sector.
+	- TipoInmueble.
+	- TipoReporte.
+
+*26-09-2022*
+- (Billy ayala) adjunto la bitacora de reuniones con las responsabilidades de cada uno desde que inicio el curso.
 
 
 *25-09-2022*
