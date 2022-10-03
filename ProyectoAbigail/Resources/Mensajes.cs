@@ -19,6 +19,7 @@ namespace ProyectoAbigail.Resources
         public const string IdInvalido = "EL ID INGRESADO ES INVALIDO O NO EXISTE";
         public const string YaDesactivado = "ESTE DATO YA FUE ELIMINADO";
         public const string Desactivado = "EL DATO FUE ELIMINADO CON EXITO";
+        public const string UsuarioRegistrado = "EL NOMBRE DE USUARIO QUE INTENTAS UTILIZAR YA ESTA EN USO";
         public const int ESTADO_EXITOSO = 1;
         public const int ESTADO_FALLIDO = 0;
 
