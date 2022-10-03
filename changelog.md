@@ -8,6 +8,10 @@
 	- Sector.
 	- TipoInmueble.
 	- TipoReporte.
+	- TipoVehiculo.
+	- Usuario.
+	- Vehiculo.
+- (Bryan paz) Hasta estas instancia se tiene terminada el api, conforme pase el proceso del front se agregaran mas consultas.
 
 *26-09-2022*
 - (Billy ayala) adjunto la bitacora de reuniones con las responsabilidades de cada uno desde que inicio el curso.
