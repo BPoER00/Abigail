@@ -18,6 +18,29 @@ export default function Home() {
         </h1>
 
         <p className={styles.description}>Esto solo es una página para redireccionar. Es el pages/index.js</p>
+        <p className={styles.description}>Aquí podemos crear una Landing Page para captar más gente</p>
+        <span>Cosas por hacer:</span>
+        <ol>
+          <li>Crear el home</li>
+          <li>Menú de objetos - Registrar Ingresos al condominio</li>
+          <li>Menú de objetos - Registrar personas</li>
+          <li>Menú de objetos - Registrar propiedades</li>
+          <li>Menú de objetos - Registrar quejas</li>
+          <li>Crear módulo de cuentas por cobrar</li>
+          <li>Registrar cuentas por cobrar</li>
+          <li>Crear reportes de control de espacios públicos</li>
+          <li>Crear reportes de Control Físico de las Casas</li>
+          <li>Crear reportes de estado de morosidad y cuentas por cobrar</li>
+          <li>Crear reportes de estado de quejas</li>
+          <li>Crear reportes de ingresos y egresos al condominio</li>
+          <li>Crear un Modal reutilizable</li>
+        </ol>
+
+        <p>Algunos extras:</p>
+        <ul>
+          <li>Crear Landing Page aquí mismo</li>
+          <li>Crear página 404</li>
+        </ul>
 
         <div className={styles.grid}>
           <Link href={"./logIn"}>
