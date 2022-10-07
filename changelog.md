@@ -1,3 +1,6 @@
+*02-10-2022*
+- (Renato Granados) Agregando Menú lateral y header
+- (Renato Granados) Creando el componente Layout
 
 *02-10-2022*
 - (Bryan Paz) Agregando Controladores de.
