@@ -1,0 +1,26 @@
+.btn {
+  width: fit-content;
+  align-self: center;
+  border: none;
+  outline: none;
+  padding: 12px 30px;
+  background-color: var(--primary-color);
+  border-radius: 6px;
+  cursor: pointer;
+  color: var(--white);
+  font-size: 1rem;
+  border: 1px solid transparent;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (hover: hover) {
+  .btn:hover {
+    background-color: transparent;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+}
