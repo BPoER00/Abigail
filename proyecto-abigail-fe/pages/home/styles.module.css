@@ -1,0 +1,64 @@
+.firstSection {
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.card {
+  width: 100%;
+  background-color: var(--white);
+  padding: 50px;
+  border-radius: 20px;
+  --shadow-color: 0deg 0% 60%;
+  --shadow-elevation-medium: 0.1px 0.3px 0.4px hsl(var(--shadow-color) / 0.36),
+    0.3px 1.1px 1.3px -0.8px hsl(var(--shadow-color) / 0.36), 0.7px 2.8px 3.2px -1.7px hsl(var(--shadow-color) / 0.36),
+    1.7px 6.9px 8px -2.5px hsl(var(--shadow-color) / 0.36);
+  box-shadow: var(--shadow-elevation-medium);
+}
+
+.quejasContainer {
+  display: flex;
+  /* align-items: center; */
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.imageContainer {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.result {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  font-family: "Poppins-bold", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
+    Droid Sans, Helvetica Neue, sans-serif;
+}
+
+.cardTitle {
+  font-size: 1.2rem;
+}
+
+.btn {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cuentasPorCobrarContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.cuentaHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.headerGraph {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
