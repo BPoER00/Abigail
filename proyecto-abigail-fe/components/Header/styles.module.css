@@ -1,0 +1,40 @@
+/* ------------------- HEADER ---------------------- */
+.header {
+  width: 100%;
+  padding: 14px 35px 14px 410px;
+  background-color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 2rem;
+}
+
+.btn {
+  background-color: var(--white);
+  border: 1px solid var(--primary-color);
+  padding: 10px 15px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+.searchInput {
+  padding: 10px 15px;
+  background-color: var(--white);
+  border: 1px solid var(--primary-color);
+  padding: 10px 15px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+.avatar {
+  border-radius: 50%;
+}
+
+/* FIN DEL HEADER */

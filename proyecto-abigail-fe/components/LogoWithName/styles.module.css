@@ -1,0 +1,14 @@
+.logoLarge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+  margin: 0;
+}
+
+.label {
+  color: var(--white);
+  font-family: "Poppins-bold", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
+    Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 1.2rem;
+}

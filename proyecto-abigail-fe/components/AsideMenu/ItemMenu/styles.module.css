@@ -1,0 +1,28 @@
+.item {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  color: var(--gray);
+}
+
+@media (hover: hover) {
+  .item:hover {
+    background: var(--black-hover);
+    color: var(--white);
+  }
+}
+
+.element {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 10px 12px;
+  border-radius: 8px;
+}
+
+.currentItem {
+  color: var(--white);
+  background-color: var(--black-hover);
+}
