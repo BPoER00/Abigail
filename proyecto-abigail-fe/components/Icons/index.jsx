@@ -120,3 +120,37 @@ export const ObjectsIcon = (props) => (
     <rect x={4} y={14} width={6} height={6} rx={1} />
   </svg>
 );
+
+export const MoonIcon = (props) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="icon icon-tabler icon-tabler-moon"
+    width={24}
+    height={24}
+    strokeWidth={2}
+    stroke="currentColor"
+    fill="none"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}>
+    <path d="M0 0h24v24H0z" stroke="none" />
+    <path d="M12 3h.393a7.5 7.5 0 0 0 7.92 12.446A9 9 0 1 1 12 2.992z" />
+  </svg>
+);
+
+export const SunIcon = (props) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="icon icon-tabler icon-tabler-sun-high"
+    width={24}
+    height={24}
+    strokeWidth={2}
+    stroke="currentColor"
+    fill="none"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}>
+    <path d="M0 0h24v24H0z" stroke="none" />
+    <path d="M14.828 14.828a4 4 0 1 0-5.656-5.656 4 4 0 0 0 5.656 5.656zM6.343 17.657l-1.414 1.414M6.343 6.343 4.929 4.929M17.657 6.343l1.414-1.414M17.657 17.657l1.414 1.414M4 12H2M12 4V2M20 12h2M12 20v2" />
+  </svg>
+);
