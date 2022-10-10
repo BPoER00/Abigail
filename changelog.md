@@ -1,3 +1,9 @@
+*09-10-2022*
+- (Renato Granados) Terminando el layout (Menú lateral y header)
+- (Renato Granados) Haciendo la pantalla home a espera de datos del backend.
+- (Emmanuel Cabrera) Programando la pantalla de registro de ingresos
+- (Renato Granados) Arreglando la pantalla de registro de ingresos
+
 *02-10-2022*
 - (Renato Granados) Agregando Menú lateral y header
 - (Renato Granados) Creando el componente Layout
