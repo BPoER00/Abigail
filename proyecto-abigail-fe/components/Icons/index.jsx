@@ -171,3 +171,42 @@ export const ArrowNarrowRight = (props) => (
     <path d="M5 12h14M15 16l4-4M15 8l4 4" />
   </svg>
 );
+
+export const QRCodeIcon = (props) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="icon icon-tabler icon-tabler-qrcode"
+    width={24}
+    height={24}
+    strokeWidth={2}
+    stroke="currentColor"
+    fill="none"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}>
+    <path d="M0 0h24v24H0z" stroke="none" />
+    <rect x={4} y={4} width={6} height={6} rx={1} />
+    <path d="M7 17v.01" />
+    <rect x={14} y={4} width={6} height={6} rx={1} />
+    <path d="M7 7v.01" />
+    <rect x={4} y={14} width={6} height={6} rx={1} />
+    <path d="M17 7v.01M14 14h3M20 14v.01M14 14v3M14 20h3M17 17h3M20 17v3" />
+  </svg>
+);
+
+export const SendIcon = (props) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="icon icon-tabler icon-tabler-send"
+    width={24}
+    height={24}
+    strokeWidth={2}
+    stroke="currentColor"
+    fill="none"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}>
+    <path d="M0 0h24v24H0z" stroke="none" />
+    <path d="M10 14 21 3M21 3l-6.5 18a.55.55 0 0 1-1 0L10 14l-7-3.5a.55.55 0 0 1 0-1L21 3" />
+  </svg>
+);

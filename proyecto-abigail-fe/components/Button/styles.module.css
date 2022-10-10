@@ -11,6 +11,9 @@
   font-size: 1rem;
   border: 1px solid transparent;
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
 }
 
 @media (hover: hover) {

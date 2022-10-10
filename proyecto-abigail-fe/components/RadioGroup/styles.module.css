@@ -1,0 +1,42 @@
+/* ---------------------- RADIO BUTTONS */
+.containerGroup {
+  margin-bottom: 2rem;
+}
+
+.label {
+  color: var(--black);
+  font-size: 1.2rem;
+}
+
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: 2rem;
+  cursor: pointer;
+}
+
+.square {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--primary-color);
+  border-radius: 3px;
+}
+
+.squareChecked {
+  background-color: var(--primary-color);
+}
+
+.squareChecked {
+  list-style-type: none;
+  position: relative;
+}
+
+.squareChecked:before {
+  content: "\2713";
+  color: var(--white);
+  padding-bottom: 10px;
+  position: absolute;
+  top: -3px;
+  left: 1px;
+}

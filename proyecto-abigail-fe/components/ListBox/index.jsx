@@ -17,8 +17,6 @@ export default function ListBox({
   // son diferentes. Es decir, estoy pasando un param data 1 y 2 totalmente distintos.
   const [selected, setSelected] = useState(data[0]);
 
-  console.log({ currentPage });
-
   return (
     <Listbox name={name} value={selected} onChange={setSelected}>
       <div className={styles.subContainer}>
