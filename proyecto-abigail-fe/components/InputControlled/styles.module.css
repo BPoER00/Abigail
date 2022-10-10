@@ -1,0 +1,21 @@
+.containerCheckbox {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-bottom: 20px;
+}
+
+.inputContainer {
+  display: flex;
+  margin: 0;
+}
+
+.inputContainer > button {
+  align-self: flex-end;
+  margin-bottom: 4px;
+  margin-left: 1rem;
+  cursor: pointer;
+  background-color: transparent;
+  border: transparent;
+}
