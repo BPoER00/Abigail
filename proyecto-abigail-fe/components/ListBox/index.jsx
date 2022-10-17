@@ -40,9 +40,9 @@ export default function ListBox({
               {() => (
                 <Link href={item.path}>
                   {currentPage === item.path ? (
-                    <span className={`${currentPage && styles.optionSelected}`}>{item.title}</span>
+                    <a className={`${currentPage && styles.optionSelected}`}>{item.title}</a>
                   ) : (
-                    <span className={styles.clearItem}>{item.title}</span>
+                    <a className={styles.clearItem}>{item.title}</a>
                   )}
                 </Link>
               )}
