@@ -81,6 +81,11 @@ export const NAV_BAR_OPTIONS = [
         title: "Registrar quejas",
         path: "/objetos/registrar-quejas",
       },
+      {
+        id: "o6",
+        title: "Registrar cuentas por cobrar",
+        path: "/cuentas-por-cobrar/registrar",
+      },
     ],
   },
 ];
