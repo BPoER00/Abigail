@@ -58,7 +58,8 @@ p,
 a,
 span,
 button,
-td {
+td,
+textarea {
   font-family: "Poppins-regular", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
     Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
