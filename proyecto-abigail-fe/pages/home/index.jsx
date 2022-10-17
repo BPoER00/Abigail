@@ -2,6 +2,8 @@ import { ArrowNarrowRight } from "components/Icons";
 import Layout from "components/Layout";
 import LinkButton from "components/LinkButton";
 import Image from "next/image";
+import ChartHome from "components/ChartHome";
+import CuentasPorCobrarTable from "components/CuentasPorCobrarTable";
 
 import styles from "./styles.module.css";
 
@@ -30,7 +32,7 @@ export default function Home({ currentPage = false }) {
               <LinkButton href="/cuentas-por-cobrar">Ver listado</LinkButton>
             </header>
             <span className={styles.result}>30</span>
-            <div>Aquí iría la tabla</div>
+            <CuentasPorCobrarTable />
           </article>
         </div>
         <article className={`${styles.card} ${styles.graph}`}>
@@ -41,7 +43,7 @@ export default function Home({ currentPage = false }) {
               <ArrowNarrowRight />
             </LinkButton>
           </header>
-          <span>Aquí iría la gráfica</span>
+          <ChartHome />
         </article>
       </div>
     </Layout>
