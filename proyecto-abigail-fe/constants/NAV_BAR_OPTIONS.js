@@ -76,6 +76,11 @@ export const NAV_BAR_OPTIONS = [
         title: "Registrar egreso",
         path: "/objetos/registrar-egresos",
       },
+      {
+        id: "o5",
+        title: "Registrar quejas",
+        path: "/objetos/registrar-quejas",
+      },
     ],
   },
 ];

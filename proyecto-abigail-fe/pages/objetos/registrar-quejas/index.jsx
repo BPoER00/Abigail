@@ -8,35 +8,35 @@ import InputControlled from "components/InputControlled";
 const OPTIONS = [
   {
     id: 1,
-    name: "Delivery",
+    name: "Mucho ruido",
   },
   {
     id: 2,
-    name: "Visitante",
+    name: "Ruido a altas horas de la noche",
   },
   {
     id: 3,
-    name: "Dueño",
+    name: "Agresión",
   },
   {
     id: 4,
-    name: "Servicios emergencia",
+    name: "Problemas con energía eléctrica",
   },
   {
     id: 5,
-    name: "Servicios externos",
+    name: "Problemas con el servicio de agua",
   },
   {
     id: 6,
-    name: "Peatón",
+    name: "Discriminación",
   },
   {
     id: 7,
-    name: "Vehículo de 2 ruedas",
+    name: "Problemas con el servicio de cañeria",
   },
   {
     id: 8,
-    name: "Vehículo de 4 ruedas",
+    name: "Conflicto con un personal de servicio",
   },
   {
     id: 9,
@@ -47,16 +47,25 @@ const OPTIONS = [
 const INPUT_DATA = [
   {
     id: "input_data_1",
-    label: "DPI",
+    label: "Nombre",
     type: "text",
-    name: "dpi",
-    placeholder: "Ingrese el DPI",
+    name: "nombre",
+    placeholder: "Ingrese el nombre de la queja",
     maxLength: "13",
+    required: true,
+  },
+  {
+    id: "input_data_2",
+    label: "Ubicación",
+    type: "text",
+    name: "ubicacion",
+    placeholder: "Ingrese donde ocurrió la queja",
+    maxLength: "100",
     required: true,
   },
 ];
 
-export default function RegistrarEgresos({ currentPage = false }) {
+export default function RegistrarIngresos({ currentPage = false }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -65,13 +74,15 @@ export default function RegistrarEgresos({ currentPage = false }) {
     // const formData = new FormData(form);
     // const data = Object.fromEntries(formData.entries());
     // console.log(data);
-    // const { Nombre, "Número de teléfono": telefono, tratamiento } = data;
+    // const { nombre, ubicacion, detalles } = data;
+    // const queja = data["tipo_de_queja[name]"];
   };
 
   return (
     <Layout currentPage={currentPage}>
       <section>
-        <h2>Registrar egreso</h2>
+        <h2>Registrar quejas</h2>
+
         <form onSubmit={handleSubmit}>
           {/* INPUTS: */}
           <div className={styles.containerInputsText}>
@@ -92,7 +103,22 @@ export default function RegistrarEgresos({ currentPage = false }) {
           </div>
 
           {/* RADIO BUTTONS: */}
-          <RadioOptions title={"Modalidad de egreso"} OPTIONS={OPTIONS} />
+          <RadioOptions title={"Motivo"} OPTIONS={OPTIONS} name="tipo_de_queja" />
+
+          {/* TEXT AREA: */}
+          <div className={styles.detallesContainer}>
+            <label className={styles.label} htmlFor="detalles">
+              Detalles
+            </label>
+            <textarea
+              className={styles.textarea}
+              placeholder="Ingrese una breve descripción de la queja"
+              name="detalles"
+              id="detalles"
+              cols="30"
+              rows="10"
+              required></textarea>
+          </div>
 
           {/* BOTÓN SUBMIT */}
           <Button type="submit">
