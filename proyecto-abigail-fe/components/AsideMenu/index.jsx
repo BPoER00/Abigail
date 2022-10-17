@@ -1,6 +1,6 @@
 import { SettingsIcon } from "components/Icons";
 import LogoWithName from "components/LogoWithName";
-import Image from "next/image";
+// import Image from "next/image";
 import Link from "next/link";
 import ItemMenu from "./ItemMenu";
 import styles from "./styles.module.css";
@@ -10,11 +10,13 @@ export default function AsideMenu({ currentPage = false }) {
     <aside className={styles.aside}>
       <header className={styles.headerAside}>
         <Link href={"/home"}>
-          <LogoWithName />
+          <a>
+            <LogoWithName />
+          </a>
         </Link>
-        <button className={styles.bthHidden}>
+        {/* <button className={styles.bthHidden}>
           <Image src={"/icons/left-arrow.svg"} width={24} height={24} alt="Ocultar menú" />
-        </button>
+        </button> */}
       </header>
       <nav className={styles.nav}>
         <ul className={styles.ul}>
