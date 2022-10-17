@@ -71,6 +71,11 @@ export const NAV_BAR_OPTIONS = [
         title: "Registrar ingreso",
         path: "/objetos/registrar-ingresos",
       },
+      {
+        id: "o4",
+        title: "Registrar egreso",
+        path: "/objetos/registrar-egresos",
+      },
     ],
   },
 ];

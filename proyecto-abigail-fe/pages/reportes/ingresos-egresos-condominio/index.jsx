@@ -8,7 +8,7 @@ const DATA_EXAMPLE = [
     dpi: "1234567890123",
     hora: "16:00",
     fecha: "25/09/2022",
-    forma_de_entrar: "Vehículo",
+    modalidad: "Vehículo",
     tipo_de_persona: "Vecino",
     destino: "1111",
   },
@@ -17,7 +17,7 @@ const DATA_EXAMPLE = [
     dpi: "1234567890155",
     hora: "17:00",
     fecha: "25/09/2022",
-    forma_de_entrar: "Vehículo",
+    modalidad: "Vehículo",
     tipo_de_persona: "Visitante",
     destino: "-",
   },
@@ -26,7 +26,7 @@ const DATA_EXAMPLE = [
     dpi: "1234567890122",
     hora: "16:00",
     fecha: "25/09/2022",
-    forma_de_entrar: "Vehículo",
+    modalidad: "Vehículo",
     tipo_de_persona: "Vecino",
     destino: "2321",
   },
@@ -35,7 +35,7 @@ const DATA_EXAMPLE = [
     dpi: "1234567890151",
     hora: "17:00",
     fecha: "25/09/2022",
-    forma_de_entrar: "Vehículo",
+    modalidad: "Vehículo",
     tipo_de_persona: "Visitante",
     destino: "-",
   },
@@ -53,7 +53,7 @@ export default function IngresosEgresosCondominio({ currentPage = false }) {
             <th>DPI</th>
             <th>Hora</th>
             <th>Fecha</th>
-            <th>Forma de entrar</th>
+            <th>Modalidad</th>
             <th>Tipo de persona</th>
             <th>Destino</th>
           </tr>
@@ -65,7 +65,7 @@ export default function IngresosEgresosCondominio({ currentPage = false }) {
               <td>{data.dpi}</td>
               <td>{data.hora}</td>
               <td>{data.fecha}</td>
-              <td>{data.forma_de_entrar}</td>
+              <td>{data.modalidad}</td>
               <td>{data.tipo_de_persona}</td>
               <td>{data.destino}</td>
             </tr>
