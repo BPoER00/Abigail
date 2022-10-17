@@ -89,7 +89,7 @@ export default function RegistrarIngresos({ currentPage = false }) {
   return (
     <Layout currentPage={currentPage}>
       <section>
-        <p>Registrar ingreso</p>
+        <h2>Registrar ingreso</h2>
         <Button>
           <QRCodeIcon />
           Escaner QR
