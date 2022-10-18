@@ -8,38 +8,45 @@ import InputControlled from "components/InputControlled";
 const OPTIONS = [
   {
     id: 1,
-    name: "Delivery",
-  },
-  {
-    id: 2,
-    name: "Visitante",
-  },
-  {
-    id: 3,
-    name: "Dueño",
-  },
-  {
-    id: 4,
-    name: "Servicios emergencia",
-  },
-  {
-    id: 5,
-    name: "Servicios externos",
-  },
-  {
-    id: 6,
-    name: "Peatón",
-  },
-  {
-    id: 7,
     name: "Vehículo de 2 ruedas",
   },
   {
-    id: 8,
+    id: 2,
     name: "Vehículo de 4 ruedas",
   },
   {
-    id: 9,
+    id: 3,
+    name: "Peatón",
+  },
+];
+
+const OPTIONS2 = [
+  {
+    id: "tipo_persona_1",
+    name: "Delivery",
+  },
+  {
+    id: "tipo_persona_2",
+    name: "Visitante",
+  },
+  {
+    id: "tipo_persona_3",
+    name: "Dueño",
+  },
+  {
+    id: "tipo_persona_4",
+    name: "Servicios emergencia",
+  },
+  {
+    id: "tipo_persona_5",
+    name: "Servicios externos",
+  },
+  {
+    id: "tipo_persona_6",
+    name: "Servicios internos",
+  },
+  {
+    id: "tipo_persona_7",
     name: "Otro",
   },
 ];
@@ -93,6 +100,7 @@ export default function RegistrarEgresos({ currentPage = false }) {
 
           {/* RADIO BUTTONS: */}
           <RadioOptions title={"Modalidad de egreso"} OPTIONS={OPTIONS} />
+          <RadioOptions title={"Tipo de persona"} OPTIONS={OPTIONS2} />
 
           {/* BOTÓN SUBMIT */}
           <Button type="submit">

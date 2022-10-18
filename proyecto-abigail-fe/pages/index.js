@@ -151,15 +151,6 @@ export default function Home() {
         <div className={styles.container}>
           <div>
             <h2>Proyecto Abigail.</h2>
-            <a href="http://twitter.com">
-              <i class="fab fa-twitter fa-2x"></i>
-            </a>
-            <a href="http://facebook.com">
-              <i class="fab fa-facebook fa-2x"></i>
-            </a>
-            <a href="http://youtube.com">
-              <i class="fab fa-youtube fa-2x"></i>
-            </a>
           </div>
           <div>
             <h3>Información de la compañía</h3>
