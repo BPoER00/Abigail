@@ -11,8 +11,9 @@ export default function InputControlled({
   placeholder = "",
   maxLength = "100",
   required = false,
+  valueQr = undefined,
 }) {
-  const [value, setEraseText] = useState("");
+  const [value, setEraseText] = useState(valueQr);
 
   const onChangeInput = (event) => {
     setEraseText(event.target.value);

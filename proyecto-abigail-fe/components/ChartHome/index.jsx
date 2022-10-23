@@ -8,6 +8,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import Loader from "components/Loader";
 import { Line } from "react-chartjs-2";
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
@@ -60,5 +61,5 @@ const data = {
 };
 
 export default function ChartHome() {
-  return <Line options={options} data={data} />;
+  return <>{options && data ? <Line options={options} data={data} /> : <Loader />}</>;
 }

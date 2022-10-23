@@ -1,3 +1,16 @@
+*18-10-2022*
+- (Renato Granados) Agregando el Lector y Generador de Qrs
+- (Renato Granados) Arreglando la gráfica del home: next.config.js: swcMinify: false
+
+*17-10-2022*
+- (Renato Granados) Terminando el Home (estadísticas y enlaces)
+- (Renato Granados) Creando el formulario de registro de egresos
+- (Renato Granados) Creando el formulario de registro de quejas
+- (Renato Granados) Desarrollo del reporte de ingresos y egresos
+- (Renato Granados) Desarrollo del reporte de quejas
+- (Renato Granados) Creación del formulario de registro de cuentas por cobrar
+- (Renato Granados) Desarrollo del reporte de cuentas por cobrar
+
 *09-10-2022*
 - (Renato Granados) Terminando el layout (Menú lateral y header)
 - (Renato Granados) Haciendo la pantalla home a espera de datos del backend.
