@@ -31,6 +31,9 @@ namespace ProyectoAbigail.Models
         public int Tipo_Inmueble_Id { get; set; }
 
         [Required(ErrorMessage = Mensajes.Obligatorio)]
+        public int Persona_Id { get; set; }
+        
+        [Required(ErrorMessage = Mensajes.Obligatorio)]
         public long Precio_Inmueble { get; set; }
         
         public int Estatus { get; set; }
@@ -48,9 +51,7 @@ namespace ProyectoAbigail.Models
             this.Precio_Inmueble = 0;
             this.Estatus = ESTADO_ACTIVO;
             this.Fecha_commit = DateTime.Now;
-            this.Hora_commit = DateTime.Now;
-            this.Sector = new Sector();
-            this.Tipo_Inmueble = new Tipo_Inmueble();        
+            this.Hora_commit = DateTime.Now;  
         }        
 #endregion
 

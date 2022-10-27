@@ -26,14 +26,14 @@ namespace ProyectoAbigail.Controllers
             try
             {
                 var inmueble_Alquilados = await this.DbContext.Inmueble_Alquilados
-                .Include(x => x.Prop_Inmueble)
+                .Include(x => x.Persona).Include(x => x.Inmueble)
                 .Where(x => x.Estatus == Inmueble_Alquilado.ESTADO_ACTIVO)
                 .ToListAsync();
 
                 if(inmueble_Alquilados.Count == 0)
                 {
                     return new Response{
-                        Resultado = Mensajes.ESTADO_FALLIDO,
+                        Resultado = Mensajes.ESTADO_EXITOSO,
                         Data = null,
                         Messages = Mensajes.MensajeNoEncontrado
                     };
@@ -63,7 +63,7 @@ namespace ProyectoAbigail.Controllers
             try
             {
                 var inmueble_Alquilados = await this.DbContext.Inmueble_Alquilados
-                .Include(x => x.Prop_Inmueble)
+                .Include(x => x.Persona).Include(x => x.Inmueble)
                 .Where(x => x.Id == id)
                 .AsNoTracking()
                 .AnyAsync();

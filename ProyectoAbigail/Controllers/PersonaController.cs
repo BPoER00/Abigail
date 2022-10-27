@@ -25,12 +25,24 @@ namespace ProyectoAbigail.Controllers
         {
             try
             {
-                var persona = await this.DbContext.Persona
-                .Include(x => x.Genero).Include(x => x.Estado_Civil).Include(x => x.Etnia).Include(x => x.Usuario).Include(x => x.Rol_Persona)
-                .Where(x => x.Estatus == Persona.ESTADO_ACTIVO)
-                .ToListAsync();
-
-                if(persona.Count == 0)
+                var persona = await (from p in this.DbContext.Persona
+                              join e in this.DbContext.Etnia on p.Etnia_Id equals e.Id
+                              join g in this.DbContext.Genero on p.Genero_Id equals g.Id
+                              join c in this.DbContext.Estado_Civil on p.Estado_Civil_Id equals c.Id
+                              select new
+                              {
+                                Nombre_Completo = p.Nombre +" "+ p.Apellido,
+                                Cui = p.Cui,
+                                Telefono = p.Telefono,
+                                Fecha_Nacimiento = p.Fecha_Nacimiento.ToString("ddMMyyyy"),
+                                Genero_Id = p.Genero_Id,
+                                Genero = g.Nombre,
+                                Estado_Civil_Id = p.Estado_Civil_Id,
+                                Estado_Civil = c.Nombre,
+                                Etnia_Id = p.Etnia_Id,
+                                Etnia = e.Nombre
+                              }).ToListAsync();
+                if(persona == null)
                 {
                     return new Response{
                         Resultado = Mensajes.ESTADO_FALLIDO,
@@ -62,13 +74,26 @@ namespace ProyectoAbigail.Controllers
         {
             try
             {
-                var persona = await this.DbContext.Persona
-                .Include(x => x.Genero).Include(x => x.Estado_Civil).Include(x => x.Etnia).Include(x => x.Usuario).Include(x => x.Rol_Persona)
-                .Where(x => x.Id == id)
-                .AsNoTracking()
-                .AnyAsync();
+                var persona = await (from p in this.DbContext.Persona
+                              join e in this.DbContext.Etnia on p.Etnia_Id equals e.Id
+                              join g in this.DbContext.Genero on p.Genero_Id equals g.Id
+                              join c in this.DbContext.Estado_Civil on p.Estado_Civil_Id equals c.Id
+                              where p.Id == id
+                              select new
+                              {
+                                Nombre_Completo = p.Nombre +" "+ p.Apellido,
+                                Cui = p.Cui,
+                                Telefono = p.Telefono,
+                                Fecha_Nacimiento = p.Fecha_Nacimiento.ToString("dd-MM-yyyy"),
+                                Genero_Id = p.Genero_Id,
+                                Genero = g.Nombre,
+                                Estado_Civil_Id = p.Estado_Civil_Id,
+                                Estado_Civil = c.Nombre,
+                                Etnia_Id = p.Etnia_Id,
+                                Etnia = e.Nombre
+                              }).SingleOrDefaultAsync();
 
-                if(!persona)
+                if(persona == null)
                 {
                     return new Response{
                         Resultado = Mensajes.ESTADO_FALLIDO,

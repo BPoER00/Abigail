@@ -15,6 +15,11 @@ namespace ProyectoAbigail.Models
         public const int ESTADO_ACTIVO = 1;
         [NotMapped]
         public const int ESTADO_INACTIVO = 0;
+        [NotMapped]
+        public const int ESTADO_INQUILINO = 2;
+        [NotMapped]
+        public const int ESTADO_PROPIETARIO = 3;
+        
 #endregion
 
 #region Propiedades
@@ -36,19 +41,15 @@ namespace ProyectoAbigail.Models
         public String Cui { get; set; }
         
         [Required(ErrorMessage = Mensajes.Obligatorio)]
-        public int Genero_Id { get; set; }
+        public int Genero_Id { get; set; } 
+
+
 
         [Required(ErrorMessage = Mensajes.Obligatorio)]
-        public int Estado_Civil_Id { get; set; }
+        public int Estado_Civil_Id { get; set; } //
 
         [Required(ErrorMessage = Mensajes.Obligatorio)]
-        public int Etnia_Id { get; set; }
-
-        [Required(ErrorMessage = Mensajes.Obligatorio)]
-        public int Usuario_Id { get; set; }
-
-        [Required(ErrorMessage = Mensajes.Obligatorio)]
-        public int Rol_Persona_Id { get; set; }
+        public int Etnia_Id { get; set; } //
 
         public int Estatus { get; set; }
         public DateTime Fecha_commit { get; set; }
@@ -66,25 +67,19 @@ namespace ProyectoAbigail.Models
             this.Genero_Id = 0;
             this.Estado_Civil_Id = 0;
             this.Etnia_Id = 0;
-            this.Usuario_Id = 0;
-            this.Rol_Persona_Id = 0;
             this.Estatus = ESTADO_ACTIVO;
             this.Fecha_commit = DateTime.Now;
             this.Hora_commit = DateTime.Now;
-            this.Genero = new Genero();
-            this.Estado_Civil = new Estado_Civil();
-            this.Etnia = new Etnia();
-            this.Usuario = new Usuario();
-            this.Rol_Persona = new Rol_Persona(); 
         }
 #endregion
 
 #region FK
+    [NotMapped]
     public virtual Genero Genero { get; set; }
+    [NotMapped]    
     public virtual Estado_Civil Estado_Civil { get; set; }
+    [NotMapped]    
     public virtual Etnia Etnia { get; set; }
-    public virtual Usuario Usuario { get; set; }
-    public virtual Rol_Persona Rol_Persona { get; set; }
 #endregion
     }
 }
