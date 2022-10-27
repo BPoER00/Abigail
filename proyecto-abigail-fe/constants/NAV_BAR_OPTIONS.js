@@ -86,6 +86,11 @@ export const NAV_BAR_OPTIONS = [
         title: "Registrar cuentas por cobrar",
         path: "/cuentas-por-cobrar/registrar",
       },
+      {
+        id: "o7",
+        title: "Registrar alquiler",
+        path: "/objetos/registrar-alquiler",
+      },
     ],
   },
 ];
