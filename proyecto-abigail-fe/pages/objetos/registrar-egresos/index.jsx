@@ -1,3 +1,5 @@
+import Swal from "sweetalert2";
+
 import Button from "components/Button";
 import Layout from "components/Layout";
 import styles from "./styles.module.css";
@@ -73,6 +75,8 @@ export default function RegistrarEgresos({ currentPage = false }) {
     // const data = Object.fromEntries(formData.entries());
     // console.log(data);
     // const { Nombre, "Número de teléfono": telefono, tratamiento } = data;
+
+    Swal.fire("Registrado exitósamente", "", "success");
   };
 
   return (

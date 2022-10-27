@@ -5,61 +5,42 @@ import Layout from "components/Layout";
 
 import ListBoxOptions from "components/ListBoxOptions";
 import Loader from "components/Loader";
-import { ESTADOS_CIVILES } from "constants/ESTADOS_CIVILES";
-import { ETNIAS } from "constants/ETNIAS";
-import { GENEROS } from "constants/GENEROS";
 import { useState } from "react";
 import styles from "./styles.module.css";
+
+export const ESTADOS = [
+  {
+    id: "1",
+    title: "Inquilino/a",
+  },
+  {
+    id: "2",
+    title: "Dueño/a",
+  },
+];
 
 const INPUT_DATA = [
   {
     id: "input_data_1",
-    label: "Nombre",
-    type: "text",
-    name: "nombre",
-    placeholder: "Ingrese el nombre de la persona",
-    maxLength: "100",
-    required: true,
-  },
-  {
-    id: "input_data_2",
-    label: "Apellidos",
-    type: "text",
-    name: "apellido",
-    placeholder: "Ingrese el apellido de la persona",
-    maxLength: "100",
-    required: true,
-  },
-  {
-    id: "input_data_3",
-    label: "Fecha de nacimiento",
-    type: "date",
-    name: "fecha_Nacimiento",
-    placeholder: "Fecha de nacimiento",
-    maxLength: "100",
-    required: true,
-  },
-  {
-    id: "input_data_4",
-    label: "Teléfono",
-    type: "tel",
-    name: "telefono",
-    placeholder: "Ej: 12345678",
-    maxLength: "100",
-    required: true,
-  },
-  {
-    id: "input_data_5",
-    label: "CUI",
+    label: "CUI (Previamente debe ser registrado en el formulario Personas)",
     type: "number",
     name: "cui",
     placeholder: "Ej: 1234567890123",
     maxLength: "13",
     required: true,
   },
+  {
+    id: "input_data_2",
+    label: "Identificador de la propiedad",
+    type: "number",
+    name: "id_propiedad",
+    placeholder: "Ej: 503",
+    maxLength: "13",
+    required: true,
+  },
 ];
 
-export default function Personas({ currentPage = false }) {
+export default function RegistrarAlquiler({ currentPage = false }) {
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = (e) => {
@@ -77,7 +58,7 @@ export default function Personas({ currentPage = false }) {
 
   return (
     <Layout currentPage={currentPage}>
-      <h2>Registrar personas</h2>
+      <h2>Registrar alquiler</h2>
       <form onSubmit={handleSubmit} className={styles.form}>
         {/* INPUTS: */}
         <div className={styles.containerInputsText}>
@@ -97,9 +78,7 @@ export default function Personas({ currentPage = false }) {
           })}
         </div>
 
-        <ListBoxOptions data={GENEROS} name="genero_Id" label="Género" />
-        <ListBoxOptions data={ESTADOS_CIVILES} name="estado_Civil_Id" label="Estado civil" />
-        <ListBoxOptions data={ETNIAS} name="etnia_Id" label="Etnia" />
+        <ListBoxOptions data={ESTADOS} name="estado_Civil_Id" label="Estado" />
 
         {/* BOTÓN SUBMIT */}
         <div>

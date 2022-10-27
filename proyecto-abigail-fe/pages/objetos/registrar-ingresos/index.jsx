@@ -4,6 +4,7 @@ import styles from "./styles.module.css";
 import { QRCodeIcon, SendIcon } from "components/Icons";
 import RadioOptions from "components/RadioGroup";
 import InputControlled from "components/InputControlled";
+import Swal from "sweetalert2";
 
 // QR:
 import QrReader from "react-qr-scanner";
@@ -99,6 +100,8 @@ export default function RegistrarIngresos({ currentPage = false }) {
     // const data = Object.fromEntries(formData.entries());
     // console.log(data);
     // const { Nombre, "Número de teléfono": telefono, tratamiento } = data;
+
+    Swal.fire("Registrado exitósamente", "", "success");
   };
 
   const [showQr, setShowQr] = useState(false);
