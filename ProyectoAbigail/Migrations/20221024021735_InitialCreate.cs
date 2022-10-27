@@ -74,23 +74,6 @@ namespace ProyectoAbigail.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Familia",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Persona_Id = table.Column<int>(type: "int", nullable: false),
-                    Cabeza_Familia_Id = table.Column<int>(type: "int", nullable: false),
-                    Estatus = table.Column<int>(type: "int", nullable: false),
-                    Fecha_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Hora_commit = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Familia", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Genero",
                 columns: table => new
                 {
@@ -104,23 +87,6 @@ namespace ProyectoAbigail.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Genero", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Inquilinos",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Persona_Id = table.Column<int>(type: "int", nullable: false),
-                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Estatus = table.Column<int>(type: "int", nullable: false),
-                    Fecha_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Hora_commit = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Inquilinos", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -153,6 +119,29 @@ namespace ProyectoAbigail.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Modulo", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Persona",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Apellido = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Fecha_Nacimiento = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Telefono = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Cui = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Genero_Id = table.Column<int>(type: "int", nullable: false),
+                    Estado_Civil_Id = table.Column<int>(type: "int", nullable: false),
+                    Etnia_Id = table.Column<int>(type: "int", nullable: false),
+                    Estatus = table.Column<int>(type: "int", nullable: false),
+                    Fecha_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Hora_commit = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Persona", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -253,6 +242,96 @@ namespace ProyectoAbigail.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Cabeza_Famila",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Persona_Id = table.Column<int>(type: "int", nullable: false),
+                    Estatus = table.Column<int>(type: "int", nullable: false),
+                    Fecha_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Hora_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    PersonaId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Cabeza_Famila", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Cabeza_Famila_Persona_PersonaId",
+                        column: x => x.PersonaId,
+                        principalTable: "Persona",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Entrada_Salida",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Persona_Id = table.Column<int>(type: "int", nullable: false),
+                    Matricula = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Fecha = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Fecha_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Hora_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    PersonaId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Entrada_Salida", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Entrada_Salida_Persona_PersonaId",
+                        column: x => x.PersonaId,
+                        principalTable: "Persona",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Factura",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Persona_Id = table.Column<int>(type: "int", nullable: false),
+                    Estatus = table.Column<int>(type: "int", nullable: false),
+                    Fecha_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Hora_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    PersonaId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Factura", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Factura_Persona_PersonaId",
+                        column: x => x.PersonaId,
+                        principalTable: "Persona",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Propietario",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Persona_Id = table.Column<int>(type: "int", nullable: false),
+                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Estatus = table.Column<int>(type: "int", nullable: false),
+                    Fecha_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Hora_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    PersonaId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Propietario", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Propietario_Persona_PersonaId",
+                        column: x => x.PersonaId,
+                        principalTable: "Persona",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Permiso",
                 columns: table => new
                 {
@@ -347,6 +426,36 @@ namespace ProyectoAbigail.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Reporte",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Persona_Id = table.Column<int>(type: "int", nullable: false),
+                    Tipo_Reporte_Id = table.Column<int>(type: "int", nullable: false),
+                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Estatus = table.Column<int>(type: "int", nullable: false),
+                    Fecha_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Hora_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    PersonaId = table.Column<int>(type: "int", nullable: true),
+                    Tipo_ReporteId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Reporte", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Reporte_Persona_PersonaId",
+                        column: x => x.PersonaId,
+                        principalTable: "Persona",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Reporte_Tipo_Reporte_Tipo_ReporteId",
+                        column: x => x.Tipo_ReporteId,
+                        principalTable: "Tipo_Reporte",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Vehiculo",
                 columns: table => new
                 {
@@ -384,212 +493,31 @@ namespace ProyectoAbigail.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Persona",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Apellido = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Fecha_Nacimiento = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Telefono = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Cui = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Genero_Id = table.Column<int>(type: "int", nullable: false),
-                    Estado_Civil_Id = table.Column<int>(type: "int", nullable: false),
-                    Etnia_Id = table.Column<int>(type: "int", nullable: false),
-                    Usuario_Id = table.Column<int>(type: "int", nullable: false),
-                    Rol_Persona_Id = table.Column<int>(type: "int", nullable: false),
-                    Estatus = table.Column<int>(type: "int", nullable: false),
-                    Fecha_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Hora_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    GeneroId = table.Column<int>(type: "int", nullable: true),
-                    Estado_CivilId = table.Column<int>(type: "int", nullable: true),
-                    EtniaId = table.Column<int>(type: "int", nullable: true),
-                    UsuarioId = table.Column<int>(type: "int", nullable: true),
-                    Rol_PersonaId = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Persona", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Persona_Estado_Civil_Estado_CivilId",
-                        column: x => x.Estado_CivilId,
-                        principalTable: "Estado_Civil",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Persona_Etnia_EtniaId",
-                        column: x => x.EtniaId,
-                        principalTable: "Etnia",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Persona_Genero_GeneroId",
-                        column: x => x.GeneroId,
-                        principalTable: "Genero",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Persona_Rol_Persona_Rol_PersonaId",
-                        column: x => x.Rol_PersonaId,
-                        principalTable: "Rol_Persona",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Persona_Usuario_UsuarioId",
-                        column: x => x.UsuarioId,
-                        principalTable: "Usuario",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Cabeza_Famila",
+                name: "Familia",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Persona_Id = table.Column<int>(type: "int", nullable: false),
-                    Estatus = table.Column<int>(type: "int", nullable: false),
-                    Fecha_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Hora_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    PersonaId = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Cabeza_Famila", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Cabeza_Famila_Persona_PersonaId",
-                        column: x => x.PersonaId,
-                        principalTable: "Persona",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Entrada_Salida",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Persona_Id = table.Column<int>(type: "int", nullable: false),
-                    Vehiculo_Id = table.Column<int>(type: "int", nullable: false),
-                    Token = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Fecha_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Hora_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    PersonaId = table.Column<int>(type: "int", nullable: true),
-                    VehiculoId = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Entrada_Salida", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Entrada_Salida_Persona_PersonaId",
-                        column: x => x.PersonaId,
-                        principalTable: "Persona",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Entrada_Salida_Vehiculo_VehiculoId",
-                        column: x => x.VehiculoId,
-                        principalTable: "Vehiculo",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Factura",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Persona_Id = table.Column<int>(type: "int", nullable: false),
-                    Estatus = table.Column<int>(type: "int", nullable: false),
-                    Fecha_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Hora_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    PersonaId = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Factura", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Factura_Persona_PersonaId",
-                        column: x => x.PersonaId,
-                        principalTable: "Persona",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Prop_Vehiculo",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Vehiculo_Id = table.Column<int>(type: "int", nullable: false),
-                    Persona_Id = table.Column<int>(type: "int", nullable: false),
-                    Estatus = table.Column<int>(type: "int", nullable: false),
-                    Fecha_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Hora_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    VehiculoId = table.Column<int>(type: "int", nullable: true),
-                    PersonaId = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Prop_Vehiculo", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Prop_Vehiculo_Persona_PersonaId",
-                        column: x => x.PersonaId,
-                        principalTable: "Persona",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Prop_Vehiculo_Vehiculo_VehiculoId",
-                        column: x => x.VehiculoId,
-                        principalTable: "Vehiculo",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Propietario",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Persona_Id = table.Column<int>(type: "int", nullable: false),
-                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Estatus = table.Column<int>(type: "int", nullable: false),
-                    Fecha_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Hora_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    PersonaId = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Propietario", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Propietario_Persona_PersonaId",
-                        column: x => x.PersonaId,
-                        principalTable: "Persona",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Reporte",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Persona_Id = table.Column<int>(type: "int", nullable: false),
-                    Tipo_Reporte_Id = table.Column<int>(type: "int", nullable: false),
-                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Cabeza_Familia_Id = table.Column<int>(type: "int", nullable: false),
                     Estatus = table.Column<int>(type: "int", nullable: false),
                     Fecha_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Hora_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
                     PersonaId = table.Column<int>(type: "int", nullable: true),
-                    Tipo_ReporteId = table.Column<int>(type: "int", nullable: true)
+                    Cabeza_FamiliaId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Reporte", x => x.Id);
+                    table.PrimaryKey("PK_Familia", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Reporte_Persona_PersonaId",
-                        column: x => x.PersonaId,
-                        principalTable: "Persona",
+                        name: "FK_Familia_Cabeza_Famila_Cabeza_FamiliaId",
+                        column: x => x.Cabeza_FamiliaId,
+                        principalTable: "Cabeza_Famila",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Reporte_Tipo_Reporte_Tipo_ReporteId",
-                        column: x => x.Tipo_ReporteId,
-                        principalTable: "Tipo_Reporte",
+                        name: "FK_Familia_Persona_PersonaId",
+                        column: x => x.PersonaId,
+                        principalTable: "Persona",
                         principalColumn: "Id");
                 });
 
@@ -624,40 +552,12 @@ namespace ProyectoAbigail.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Prop_Inmueble",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Propietario_Id = table.Column<int>(type: "int", nullable: false),
-                    Inmueble_Id = table.Column<int>(type: "int", nullable: false),
-                    Estatus = table.Column<int>(type: "int", nullable: false),
-                    Fecha_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Hora_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    PropietarioId = table.Column<int>(type: "int", nullable: true),
-                    InmuebleId = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Prop_Inmueble", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Prop_Inmueble_Inmueble_InmuebleId",
-                        column: x => x.InmuebleId,
-                        principalTable: "Inmueble",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Prop_Inmueble_Propietario_PropietarioId",
-                        column: x => x.PropietarioId,
-                        principalTable: "Propietario",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Inmueble_Alquilados",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Persona_Id = table.Column<int>(type: "int", nullable: false),
                     Inmueble_Id = table.Column<int>(type: "int", nullable: false),
                     Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Fecha_Alquiler = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -665,15 +565,50 @@ namespace ProyectoAbigail.Migrations
                     Estatus = table.Column<int>(type: "int", nullable: false),
                     Fecha_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Hora_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Prop_InmuebleId = table.Column<int>(type: "int", nullable: true)
+                    PersonaId = table.Column<int>(type: "int", nullable: true),
+                    InmuebleId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Inmueble_Alquilados", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Inmueble_Alquilados_Prop_Inmueble_Prop_InmuebleId",
-                        column: x => x.Prop_InmuebleId,
-                        principalTable: "Prop_Inmueble",
+                        name: "FK_Inmueble_Alquilados_Inmueble_InmuebleId",
+                        column: x => x.InmuebleId,
+                        principalTable: "Inmueble",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Inmueble_Alquilados_Persona_PersonaId",
+                        column: x => x.PersonaId,
+                        principalTable: "Persona",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Prop_Vehiculo",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Vehiculo_Id = table.Column<int>(type: "int", nullable: false),
+                    Persona_Id = table.Column<int>(type: "int", nullable: false),
+                    Estatus = table.Column<int>(type: "int", nullable: false),
+                    Fecha_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Hora_commit = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    VehiculoId = table.Column<int>(type: "int", nullable: true),
+                    PersonaId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Prop_Vehiculo", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Prop_Vehiculo_Persona_PersonaId",
+                        column: x => x.PersonaId,
+                        principalTable: "Persona",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Prop_Vehiculo_Vehiculo_VehiculoId",
+                        column: x => x.VehiculoId,
+                        principalTable: "Vehiculo",
                         principalColumn: "Id");
                 });
 
@@ -698,13 +633,18 @@ namespace ProyectoAbigail.Migrations
                 column: "PersonaId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Entrada_Salida_VehiculoId",
-                table: "Entrada_Salida",
-                column: "VehiculoId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Factura_PersonaId",
                 table: "Factura",
+                column: "PersonaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Familia_Cabeza_FamiliaId",
+                table: "Familia",
+                column: "Cabeza_FamiliaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Familia_PersonaId",
+                table: "Familia",
                 column: "PersonaId");
 
             migrationBuilder.CreateIndex(
@@ -718,9 +658,14 @@ namespace ProyectoAbigail.Migrations
                 column: "Tipo_InmuebleId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Inmueble_Alquilados_Prop_InmuebleId",
+                name: "IX_Inmueble_Alquilados_InmuebleId",
                 table: "Inmueble_Alquilados",
-                column: "Prop_InmuebleId");
+                column: "InmuebleId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Inmueble_Alquilados_PersonaId",
+                table: "Inmueble_Alquilados",
+                column: "PersonaId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Permiso_AccionId",
@@ -736,41 +681,6 @@ namespace ProyectoAbigail.Migrations
                 name: "IX_Permiso_RolId",
                 table: "Permiso",
                 column: "RolId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Persona_Estado_CivilId",
-                table: "Persona",
-                column: "Estado_CivilId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Persona_EtniaId",
-                table: "Persona",
-                column: "EtniaId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Persona_GeneroId",
-                table: "Persona",
-                column: "GeneroId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Persona_Rol_PersonaId",
-                table: "Persona",
-                column: "Rol_PersonaId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Persona_UsuarioId",
-                table: "Persona",
-                column: "UsuarioId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Prop_Inmueble_InmuebleId",
-                table: "Prop_Inmueble",
-                column: "InmuebleId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Prop_Inmueble_PropietarioId",
-                table: "Prop_Inmueble",
-                column: "PropietarioId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Prop_Vehiculo_PersonaId",
@@ -821,22 +731,25 @@ namespace ProyectoAbigail.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Cabeza_Famila");
-
-            migrationBuilder.DropTable(
                 name: "Detalle");
 
             migrationBuilder.DropTable(
                 name: "Entrada_Salida");
 
             migrationBuilder.DropTable(
+                name: "Estado_Civil");
+
+            migrationBuilder.DropTable(
+                name: "Etnia");
+
+            migrationBuilder.DropTable(
                 name: "Familia");
 
             migrationBuilder.DropTable(
-                name: "Inmueble_Alquilados");
+                name: "Genero");
 
             migrationBuilder.DropTable(
-                name: "Inquilinos");
+                name: "Inmueble_Alquilados");
 
             migrationBuilder.DropTable(
                 name: "Permiso");
@@ -845,13 +758,25 @@ namespace ProyectoAbigail.Migrations
                 name: "Prop_Vehiculo");
 
             migrationBuilder.DropTable(
+                name: "Propietario");
+
+            migrationBuilder.DropTable(
                 name: "Reporte");
+
+            migrationBuilder.DropTable(
+                name: "Rol_Persona");
+
+            migrationBuilder.DropTable(
+                name: "Usuario");
 
             migrationBuilder.DropTable(
                 name: "Factura");
 
             migrationBuilder.DropTable(
-                name: "Prop_Inmueble");
+                name: "Cabeza_Famila");
+
+            migrationBuilder.DropTable(
+                name: "Inmueble");
 
             migrationBuilder.DropTable(
                 name: "Accion");
@@ -866,10 +791,16 @@ namespace ProyectoAbigail.Migrations
                 name: "Tipo_Reporte");
 
             migrationBuilder.DropTable(
-                name: "Inmueble");
+                name: "Rol");
 
             migrationBuilder.DropTable(
-                name: "Propietario");
+                name: "Persona");
+
+            migrationBuilder.DropTable(
+                name: "Sector");
+
+            migrationBuilder.DropTable(
+                name: "Tipo_Inmueble");
 
             migrationBuilder.DropTable(
                 name: "Color");
@@ -879,33 +810,6 @@ namespace ProyectoAbigail.Migrations
 
             migrationBuilder.DropTable(
                 name: "Tipo_Vehiculo");
-
-            migrationBuilder.DropTable(
-                name: "Sector");
-
-            migrationBuilder.DropTable(
-                name: "Tipo_Inmueble");
-
-            migrationBuilder.DropTable(
-                name: "Persona");
-
-            migrationBuilder.DropTable(
-                name: "Estado_Civil");
-
-            migrationBuilder.DropTable(
-                name: "Etnia");
-
-            migrationBuilder.DropTable(
-                name: "Genero");
-
-            migrationBuilder.DropTable(
-                name: "Rol_Persona");
-
-            migrationBuilder.DropTable(
-                name: "Usuario");
-
-            migrationBuilder.DropTable(
-                name: "Rol");
         }
     }
 }

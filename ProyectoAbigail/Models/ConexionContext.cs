@@ -28,14 +28,11 @@ namespace ProyectoAbigail.Models
         public DbSet<Genero> Genero  { get; set; }
         public DbSet<Inmueble> Inmueble  { get; set; }
         public DbSet<Inmueble_Alquilado> Inmueble_Alquilados  { get; set; }
-        public DbSet<Inquilino> Inquilinos  { get; set; }
         public DbSet<Marca> Marca  { get; set; }
         public DbSet<Modulo> Modulo  { get; set; }
         public DbSet<Permiso> Permiso  { get; set; }
         public DbSet<Persona> Persona  { get; set; }
-        public DbSet<Prop_Inmueble> Prop_Inmueble  { get; set; }
         public DbSet<Prop_Vehiculo> Prop_Vehiculo  { get; set; }
-        public DbSet<Propietario> Propietario  { get; set; }
         public DbSet<Reporte> Reporte  { get; set; }
         public DbSet<Rol> Rol  { get; set; }
         public DbSet<Rol_Persona> Rol_Persona  { get; set; }

@@ -26,7 +26,7 @@ namespace ProyectoAbigail.Controllers
             try
             {
                 var entradaSalida = await this.DbContext.Entrada_Salida
-                .Include(x => x.Persona).Include(x => x.Vehiculo)
+                .Include(x => x.Persona)
                 .ToListAsync();
 
                 if(entradaSalida.Count == 0)
@@ -57,13 +57,13 @@ namespace ProyectoAbigail.Controllers
         }
     
         [HttpGet("Get/{id}")]
-        public async Task<Response> Get(int? id)
+        public async Task<Response> Get(string cui)
         {
             try
             {
                 var entradaSalida = await this.DbContext.Entrada_Salida
-                .Include(x => x.Persona).Include(x => x.Vehiculo)
-                .Where(x => x.Id == id)
+                .Include(x => x.Persona)
+                .Where(x => x.cui == cui)
                 .AsNoTracking()
                 .AnyAsync();
 
@@ -108,6 +108,8 @@ namespace ProyectoAbigail.Controllers
                 }
                 else
                 {
+
+                    
                     this.DbContext.Entrada_Salida.Add(entradaSalida);
                     await this.DbContext.SaveChangesAsync();
                     return new Response{

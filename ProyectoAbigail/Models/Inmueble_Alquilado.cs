@@ -15,12 +15,18 @@ namespace ProyectoAbigail.Models
         public const int ESTADO_ACTIVO = 1;
         [NotMapped]
         public const int ESTADO_INACTIVO = 0;
+        [NotMapped]
+        public const int ESTADO_REMODELACION = 2;
+        
 #endregion
 
 #region Propiedades
         [Key]
         public int Id { get; set; }
         
+        [Required(ErrorMessage = Mensajes.Obligatorio)]
+        public int Persona_Id { get; set; }
+
         [Required(ErrorMessage = Mensajes.Obligatorio)]
         public int Inmueble_Id { get; set; }
 
@@ -46,12 +52,12 @@ namespace ProyectoAbigail.Models
             this.Estatus = ESTADO_ACTIVO;
             this.Fecha_commit = DateTime.Now;
             this.Hora_commit = DateTime.Now;
-            this.Prop_Inmueble = new Prop_Inmueble();
         }
 #endregion
 
 #region FK
-        public virtual Prop_Inmueble Prop_Inmueble { get; set; }
+        public virtual Persona Persona { get; set; }
+        public virtual Inmueble Inmueble { get; set; }
 #endregion
     }
 }

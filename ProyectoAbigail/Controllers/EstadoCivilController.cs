@@ -62,11 +62,9 @@ namespace ProyectoAbigail.Controllers
             try
             {
                 var estado_Civil = await this.DbContext.Estado_Civil
-                .Where(x => x.Id == id)
-                .AsNoTracking()
-                .AnyAsync();
+                .Where(x => x.Id == id).SingleOrDefaultAsync();
 
-                if(!estado_Civil)
+                if(estado_Civil == null)
                 {
                     return new Response{
                         Resultado = Mensajes.ESTADO_FALLIDO,

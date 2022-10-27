@@ -12,7 +12,7 @@ using ProyectoAbigail.Models;
 namespace ProyectoAbigail.Migrations
 {
     [DbContext(typeof(ConexionContext))]
-    [Migration("20220925023501_InitialCreate")]
+    [Migration("20221024021735_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -156,11 +156,17 @@ namespace ProyectoAbigail.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<DateTime>("Fecha")
+                        .HasColumnType("datetime2");
+
                     b.Property<DateTime>("Fecha_commit")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("Hora_commit")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Matricula")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("PersonaId")
                         .HasColumnType("int");
@@ -168,21 +174,9 @@ namespace ProyectoAbigail.Migrations
                     b.Property<int>("Persona_Id")
                         .HasColumnType("int");
 
-                    b.Property<string>("Token")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("VehiculoId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Vehiculo_Id")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("PersonaId");
-
-                    b.HasIndex("VehiculoId");
 
                     b.ToTable("Entrada_Salida");
                 });
@@ -277,6 +271,9 @@ namespace ProyectoAbigail.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<int?>("Cabeza_FamiliaId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Cabeza_Familia_Id")
                         .HasColumnType("int");
 
@@ -289,10 +286,17 @@ namespace ProyectoAbigail.Migrations
                     b.Property<DateTime>("Hora_commit")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("PersonaId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Persona_Id")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Cabeza_FamiliaId");
+
+                    b.HasIndex("PersonaId");
 
                     b.ToTable("Familia");
                 });
@@ -395,46 +399,25 @@ namespace ProyectoAbigail.Migrations
                     b.Property<DateTime>("Hora_commit")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("InmuebleId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Inmueble_Id")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Prop_InmuebleId")
+                    b.Property<int?>("PersonaId")
                         .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Prop_InmuebleId");
-
-                    b.ToTable("Inmueble_Alquilados");
-                });
-
-            modelBuilder.Entity("ProyectoAbigail.Models.Inquilino", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Descripcion")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Estatus")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("Fecha_commit")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("Hora_commit")
-                        .HasColumnType("datetime2");
 
                     b.Property<int>("Persona_Id")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Inquilinos");
+                    b.HasIndex("InmuebleId");
+
+                    b.HasIndex("PersonaId");
+
+                    b.ToTable("Inmueble_Alquilados");
                 });
 
             modelBuilder.Entity("ProyectoAbigail.Models.Marca", b =>
@@ -555,16 +538,10 @@ namespace ProyectoAbigail.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("Estado_CivilId")
-                        .HasColumnType("int");
-
                     b.Property<int>("Estado_Civil_Id")
                         .HasColumnType("int");
 
                     b.Property<int>("Estatus")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("EtniaId")
                         .HasColumnType("int");
 
                     b.Property<int>("Etnia_Id")
@@ -576,9 +553,6 @@ namespace ProyectoAbigail.Migrations
                     b.Property<DateTime>("Fecha_commit")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("GeneroId")
-                        .HasColumnType("int");
-
                     b.Property<int>("Genero_Id")
                         .HasColumnType("int");
 
@@ -589,72 +563,12 @@ namespace ProyectoAbigail.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("Rol_PersonaId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Rol_Persona_Id")
-                        .HasColumnType("int");
-
                     b.Property<string>("Telefono")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("UsuarioId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Usuario_Id")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("Estado_CivilId");
-
-                    b.HasIndex("EtniaId");
-
-                    b.HasIndex("GeneroId");
-
-                    b.HasIndex("Rol_PersonaId");
-
-                    b.HasIndex("UsuarioId");
 
                     b.ToTable("Persona");
-                });
-
-            modelBuilder.Entity("ProyectoAbigail.Models.Prop_Inmueble", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("Estatus")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("Fecha_commit")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("Hora_commit")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("InmuebleId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Inmueble_Id")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("PropietarioId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Propietario_Id")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("InmuebleId");
-
-                    b.HasIndex("PropietarioId");
-
-                    b.ToTable("Prop_Inmueble");
                 });
 
             modelBuilder.Entity("ProyectoAbigail.Models.Prop_Vehiculo", b =>
@@ -1057,13 +971,7 @@ namespace ProyectoAbigail.Migrations
                         .WithMany()
                         .HasForeignKey("PersonaId");
 
-                    b.HasOne("ProyectoAbigail.Models.Vehiculo", "Vehiculo")
-                        .WithMany()
-                        .HasForeignKey("VehiculoId");
-
                     b.Navigation("Persona");
-
-                    b.Navigation("Vehiculo");
                 });
 
             modelBuilder.Entity("ProyectoAbigail.Models.Factura", b =>
@@ -1071,6 +979,21 @@ namespace ProyectoAbigail.Migrations
                     b.HasOne("ProyectoAbigail.Models.Persona", "Persona")
                         .WithMany()
                         .HasForeignKey("PersonaId");
+
+                    b.Navigation("Persona");
+                });
+
+            modelBuilder.Entity("ProyectoAbigail.Models.Familia", b =>
+                {
+                    b.HasOne("ProyectoAbigail.Models.Cabeza_Famila", "Cabeza_Familia")
+                        .WithMany()
+                        .HasForeignKey("Cabeza_FamiliaId");
+
+                    b.HasOne("ProyectoAbigail.Models.Persona", "Persona")
+                        .WithMany()
+                        .HasForeignKey("PersonaId");
+
+                    b.Navigation("Cabeza_Familia");
 
                     b.Navigation("Persona");
                 });
@@ -1092,11 +1015,17 @@ namespace ProyectoAbigail.Migrations
 
             modelBuilder.Entity("ProyectoAbigail.Models.Inmueble_Alquilado", b =>
                 {
-                    b.HasOne("ProyectoAbigail.Models.Prop_Inmueble", "Prop_Inmueble")
+                    b.HasOne("ProyectoAbigail.Models.Inmueble", "Inmueble")
                         .WithMany()
-                        .HasForeignKey("Prop_InmuebleId");
+                        .HasForeignKey("InmuebleId");
 
-                    b.Navigation("Prop_Inmueble");
+                    b.HasOne("ProyectoAbigail.Models.Persona", "Persona")
+                        .WithMany()
+                        .HasForeignKey("PersonaId");
+
+                    b.Navigation("Inmueble");
+
+                    b.Navigation("Persona");
                 });
 
             modelBuilder.Entity("ProyectoAbigail.Models.Permiso", b =>
@@ -1118,54 +1047,6 @@ namespace ProyectoAbigail.Migrations
                     b.Navigation("Modulo");
 
                     b.Navigation("Rol");
-                });
-
-            modelBuilder.Entity("ProyectoAbigail.Models.Persona", b =>
-                {
-                    b.HasOne("ProyectoAbigail.Models.Estado_Civil", "Estado_Civil")
-                        .WithMany()
-                        .HasForeignKey("Estado_CivilId");
-
-                    b.HasOne("ProyectoAbigail.Models.Etnia", "Etnia")
-                        .WithMany()
-                        .HasForeignKey("EtniaId");
-
-                    b.HasOne("ProyectoAbigail.Models.Genero", "Genero")
-                        .WithMany()
-                        .HasForeignKey("GeneroId");
-
-                    b.HasOne("ProyectoAbigail.Models.Rol_Persona", "Rol_Persona")
-                        .WithMany()
-                        .HasForeignKey("Rol_PersonaId");
-
-                    b.HasOne("ProyectoAbigail.Models.Usuario", "Usuario")
-                        .WithMany()
-                        .HasForeignKey("UsuarioId");
-
-                    b.Navigation("Estado_Civil");
-
-                    b.Navigation("Etnia");
-
-                    b.Navigation("Genero");
-
-                    b.Navigation("Rol_Persona");
-
-                    b.Navigation("Usuario");
-                });
-
-            modelBuilder.Entity("ProyectoAbigail.Models.Prop_Inmueble", b =>
-                {
-                    b.HasOne("ProyectoAbigail.Models.Inmueble", "Inmueble")
-                        .WithMany()
-                        .HasForeignKey("InmuebleId");
-
-                    b.HasOne("ProyectoAbigail.Models.Propietario", "Propietario")
-                        .WithMany()
-                        .HasForeignKey("PropietarioId");
-
-                    b.Navigation("Inmueble");
-
-                    b.Navigation("Propietario");
                 });
 
             modelBuilder.Entity("ProyectoAbigail.Models.Prop_Vehiculo", b =>

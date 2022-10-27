@@ -8,42 +8,50 @@ using ProyectoAbigail.Resources;
 
 namespace ProyectoAbigail.Models
 {
+
     public class Entrada_Salida
     {
+    public const int INVALIDA = 0;
+    public const int ENTRADA = 1;
+    public const int SALIDA = 2;
+
 #region Propiedades
         [Key]
         public int Id { get; set; }
         
         [Required(ErrorMessage = Mensajes.Obligatorio)]
-        public int Persona_Id { get; set; }
+        public string cui { get; set; }
+        public string Matricula  { get; set; }
+        public string Destino { get; set; }
 
         [Required(ErrorMessage = Mensajes.Obligatorio)]
-        public int Vehiculo_Id  { get; set; }
+        public DateTime Fecha { get; set; }    
+    
+        [Required(ErrorMessage = Mensajes.Obligatorio)]
+        public int Id_Modalidad_Ingreso { get; set; }    
 
         [Required(ErrorMessage = Mensajes.Obligatorio)]
-        public string Token { get; set; }
+        public int Id_Tipo_Persona { get; set; }    
 
+        [Required(ErrorMessage = Mensajes.Obligatorio)]
         public DateTime Fecha_commit { get; set; }
         public DateTime Hora_commit { get; set; }
+
+        
 #endregion
 
 #region Constructores
         public Entrada_Salida()
         {
             this.Id = 0;
-            this.Persona_Id = 0;
-            this.Vehiculo_Id = 0;
-            this.Token = string.Empty;
             this.Fecha_commit = DateTime.Now;
             this.Hora_commit = DateTime.Now;
             this.Persona = new Persona();
-            this.Vehiculo = new Vehiculo();
         }
 #endregion
 
 #region FK
         public virtual Persona Persona { get; set; }
-        public virtual Vehiculo Vehiculo { get; set; }
 #endregion    
     }
 }
